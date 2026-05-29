@@ -1,1 +1,0 @@
-# Proverbs_from_The_Bible_for_Children
