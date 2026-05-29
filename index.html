@@ -513,8 +513,8 @@
 
     .g-card-grid {
       display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 8px;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
       margin-bottom: 20px;
     }
 
@@ -557,13 +557,13 @@
     .g-card-front.knowledge { background: linear-gradient(135deg,#1a1040,#2d1b69); border: 2px solid var(--gpurp); }
     .g-card-front.wisdom    { background: linear-gradient(135deg,#0a2a20,#0d3d2a); border: 2px solid var(--ggreen); }
     .g-card-type-badge {
-      font-size: 0.5rem; font-weight: 800; letter-spacing: 0.08em;
-      padding: 2px 6px; border-radius: 100px; margin-bottom: 2px;
+      font-size: 0.55rem; font-weight: 800; letter-spacing: 0.06em;
+      padding: 2px 7px; border-radius: 100px; margin-bottom: 3px;
     }
     .knowledge .g-card-type-badge { background: rgba(179,136,255,0.2); color: var(--gpurp); border: 1px solid rgba(179,136,255,0.4); }
     .wisdom    .g-card-type-badge { background: rgba(6,214,160,0.15);  color: var(--ggreen); border: 1px solid rgba(6,214,160,0.4); }
-    .g-card-emoji { font-size: 1.2rem; line-height: 1; margin: 2px 0; }
-    .g-card-text  { font-size: 0.55rem; font-weight: 700; line-height: 1.4; color: var(--gwhite); opacity: 0.9; }
+    .g-card-emoji { font-size: 1.6rem; line-height: 1; margin: 4px 0; }
+    .g-card-text  { font-size: 0.62rem; font-weight: 700; line-height: 1.5; color: var(--gwhite); opacity: 0.9; }
     .g-card.matched .g-card-inner { opacity: 0.6; }
     .g-card:not(.flipped):not(.matched):hover .g-card-inner { transform: translateY(-3px) rotateY(6deg); }
 
@@ -632,7 +632,7 @@
     .g-flash.miss  { background: rgba(239,71,111,0.15); border: 2px solid var(--gred);   color: var(--gred); }
 
     @media (max-width: 480px) {
-      .g-card-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+      .g-card-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
       .g-card-emoji { font-size: 1.1rem; }
       .g-card-text  { font-size: 0.5rem; }
     }
@@ -901,13 +901,13 @@
       </div>
 
       <div class="g-rule-box">
-        <strong>あそびかた：</strong>カードをめくって、<strong>同じペア</strong>（知識カード＋知識カード、または知恵カード＋知恵カード）を見つけよう。全部で <strong>8ペア</strong>。ミスを少なくクリアしよう！
+        <strong>あそびかた：</strong>カードをめくって、<strong>同じペア</strong>（知識カード＋知識カード、または知恵カード＋知恵カード）を見つけよう。全部で <strong>9ペア</strong>。ミスを少なくクリアしよう！
       </div>
 
       <div class="g-scorebar">
         <div class="g-score-item">
           <div class="g-score-label">⭐ ペア</div>
-          <div class="g-score-val g-gold" id="g-pairs">0 / 8</div>
+          <div class="g-score-val g-gold" id="g-pairs">0 / 9</div>
         </div>
         <div class="g-score-divider"></div>
         <div class="g-score-item">
@@ -960,6 +960,7 @@ const G_CARD_DATA = [
   { id:'k2', type:'knowledge', emoji:'🔢', text:'九九を\n全部言える' },
   { id:'k3', type:'knowledge', emoji:'🌍', text:'国の名前を\nたくさん知っている' },
   { id:'k4', type:'knowledge', emoji:'📖', text:'聖書の言葉を\n暗記している' },
+  { id:'k5', type:'knowledge', emoji:'🔭', text:'星の名前を\nたくさん知っている' },
   { id:'w1', type:'wisdom',    emoji:'🤝', text:'悲しむ友だちに\n声をかける' },
   { id:'w2', type:'wisdom',    emoji:'😊', text:'宿題を忘れたことを\n正直に話す' },
   { id:'w3', type:'wisdom',    emoji:'✋', text:'悪口を聞いても\n一緒に言わない' },
@@ -970,6 +971,7 @@ const G_MATCH_MSGS = {
   k2:'九九を全部言える → これは知識！',
   k3:'国の名前をたくさん知っている → これは知識！',
   k4:'聖書の言葉を暗記している → これは知識！',
+  k5:'星の名前をたくさん知っている → これは知識！',
   w1:'悲しむ友だちに声をかける → これが知恵！',
   w2:'正直に話す → これが知恵！',
   w3:'悪口を一緒に言わない → これが知恵！',
@@ -981,7 +983,7 @@ let gCards=[], gFlipped=[], gMatched=new Set(), gMoves=0, gMisses=0, gLocked=fal
 function gShuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 
 function gInitGame(){
-  gCards = gShuffle([...G_CARD_DATA,...G_CARD_DATA].map((d,i)=>({...d,uid:d.id+(i<8?'_a':'_b')})));
+  gCards = gShuffle([...G_CARD_DATA,...G_CARD_DATA].map((d,i)=>({...d,uid:d.id+(i<9?'_a':'_b')})));
   gFlipped=[]; gMatched=new Set(); gMoves=0; gMisses=0; gLocked=false;
   gUpdateScore(); gSetPhase('カードをめくってスタート！'); gRenderGrid();
   document.getElementById('g-modal').classList.remove('show');
@@ -1019,7 +1021,7 @@ function gOnCardClick(el,card){
 }
 
 function gUpdateScore(){
-  document.getElementById('g-pairs').textContent=`${gMatched.size} / 8`;
+  document.getElementById('g-pairs').textContent=`${gMatched.size} / 9`;
   document.getElementById('g-moves').textContent=gMoves;
   document.getElementById('g-misses').textContent=gMisses;
 }
