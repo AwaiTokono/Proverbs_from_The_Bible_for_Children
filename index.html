@@ -86,7 +86,7 @@
       display: inline-block;
       background: var(--blue);
       color: var(--white);
-      font-size: 0.78rem;
+      font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: 0.12em;
       padding: 6px 18px;
@@ -386,6 +386,16 @@
 
     .story-bubble strong { color: var(--blue-dark); font-style: normal; }
 
+    /* ======= Title Image ======= */
+    .title-img-wrap { margin-bottom: 28px; }
+    .title-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* ======= Footer ======= */
     .footer {
       text-align: center;
@@ -423,6 +433,13 @@
     <h1 class="hero-title"><ruby>知恵<rt>ちえ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶために</h1>
     <p class="hero-subtitle"><ruby>箴言<rt>しんげん</rt></ruby> 1:1〜6</p>
   </header>
+
+  <!-- Title Image -->
+  <div class="title-img-wrap">
+    <img src="img_01_title_new.png"
+         alt="箴言第1章 第一部 箴言1:1〜6「知恵を学ぶために」今日の御言葉とソロモン王のイラスト"
+         class="title-img">
+  </div>
 
   <!-- Scripture -->
   <section class="scripture-card" aria-label="今日の御言葉">
