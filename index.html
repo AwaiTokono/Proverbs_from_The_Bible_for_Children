@@ -637,6 +637,30 @@
       .g-card-text  { font-size: 0.5rem; }
     }
 
+    /* ======= Game Link ======= */
+    .game-link-wrap { text-align: center; margin-bottom: 28px; }
+
+    .game-link-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #1E5FA0 0%, #3A8FD9 100%);
+      color: var(--white);
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 900;
+      padding: 18px 40px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    .game-link-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* ======= Footer ======= */
     .footer {
       text-align: center;
@@ -885,64 +909,16 @@
     <div class="prayer-amen">アーメン 🙏</div>
   </div>
 
-  <!-- ===== BONUS GAME ===== -->
-  <div id="game-section">
+  <!-- ===== BONUS GAME LINK ===== -->
+  <div class="game-link-wrap">
     <div class="game-divider">
       <span class="game-divider-icon">🎮</span>
-      <span class="game-divider-text">おまけ：カードゲームであそぼう！</span>
+      <span class="game-divider-text">おまけ</span>
       <span class="game-divider-icon">🎮</span>
     </div>
-
-    <div class="g-wrap">
-      <div class="g-title-area">
-        <div class="g-badge">📖 箴言1章より</div>
-        <h2 class="g-title">🃏 知識 vs 知恵<br>カードめくりゲーム</h2>
-        <p class="g-desc">同じペアのカードを見つけよう！</p>
-      </div>
-
-      <div class="g-rule-box">
-        <strong>あそびかた：</strong>カードをめくって、<strong>同じペア</strong>（知識カード＋知識カード、または知恵カード＋知恵カード）を見つけよう。全部で <strong>9ペア</strong>。ミスを少なくクリアしよう！
-      </div>
-
-      <div class="g-scorebar">
-        <div class="g-score-item">
-          <div class="g-score-label">⭐ ペア</div>
-          <div class="g-score-val g-gold" id="g-pairs">0 / 9</div>
-        </div>
-        <div class="g-score-divider"></div>
-        <div class="g-score-item">
-          <div class="g-score-label">🔄 回数</div>
-          <div class="g-score-val g-blue" id="g-moves">0</div>
-        </div>
-        <div class="g-score-divider"></div>
-        <div class="g-score-item">
-          <div class="g-score-label">❌ ミス</div>
-          <div class="g-score-val g-green" id="g-misses">0</div>
-        </div>
-      </div>
-
-      <div class="g-phase-bar">
-        <div class="g-phase-text" id="g-phase-text">カードをめくってスタート！</div>
-      </div>
-
-      <div class="g-card-grid" id="g-grid"></div>
-
-      <div class="g-btn-area">
-        <button class="g-btn" onclick="gInitGame()">🔀 シャッフルしてはじめる</button>
-      </div>
-    </div>
-
-    <div class="g-flash" id="g-flash"></div>
-
-    <div class="g-modal-overlay" id="g-modal">
-      <div class="g-modal">
-        <span class="g-modal-emoji">🎉</span>
-        <div class="g-modal-title">クリア！</div>
-        <div class="g-modal-msg" id="g-modal-msg"></div>
-        <div class="g-modal-score" id="g-modal-score"></div>
-        <button class="g-btn" onclick="gCloseModal()">もう一度あそぶ</button>
-      </div>
-    </div>
+    <a href="wisdom-card-game.html" class="game-link-btn">
+      🃏 知識 vs 知恵 カードゲームであそぶ！
+    </a>
   </div>
 
   <footer class="footer">
@@ -953,101 +929,5 @@
   </footer>
 
 </div>
-<script>
-// ===== カードゲーム =====
-const G_CARD_DATA = [
-  { id:'k1', type:'knowledge', emoji:'📚', text:'魚の名前を\n100種類知っている' },
-  { id:'k2', type:'knowledge', emoji:'🔢', text:'九九を\n全部言える' },
-  { id:'k3', type:'knowledge', emoji:'🌍', text:'国の名前を\nたくさん知っている' },
-  { id:'k4', type:'knowledge', emoji:'📖', text:'聖書の言葉を\n暗記している' },
-  { id:'k5', type:'knowledge', emoji:'🔭', text:'星の名前を\nたくさん知っている' },
-  { id:'w1', type:'wisdom',    emoji:'🤝', text:'悲しむ友だちに\n声をかける' },
-  { id:'w2', type:'wisdom',    emoji:'😊', text:'宿題を忘れたことを\n正直に話す' },
-  { id:'w3', type:'wisdom',    emoji:'✋', text:'悪口を聞いても\n一緒に言わない' },
-  { id:'w4', type:'wisdom',    emoji:'🙏', text:'神さまが\n喜ばれることを選ぶ' },
-];
-const G_MATCH_MSGS = {
-  k1:'魚の名前を100種類知っている → これは知識！',
-  k2:'九九を全部言える → これは知識！',
-  k3:'国の名前をたくさん知っている → これは知識！',
-  k4:'聖書の言葉を暗記している → これは知識！',
-  k5:'星の名前をたくさん知っている → これは知識！',
-  w1:'悲しむ友だちに声をかける → これが知恵！',
-  w2:'正直に話す → これが知恵！',
-  w3:'悪口を一緒に言わない → これが知恵！',
-  w4:'神さまが喜ばれることを選ぶ → これが知恵！',
-};
-
-let gCards=[], gFlipped=[], gMatched=new Set(), gMoves=0, gMisses=0, gLocked=false, gFlashTimer=null;
-
-function gShuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-
-function gInitGame(){
-  gCards = gShuffle([...G_CARD_DATA,...G_CARD_DATA].map((d,i)=>({...d,uid:d.id+(i<9?'_a':'_b')})));
-  gFlipped=[]; gMatched=new Set(); gMoves=0; gMisses=0; gLocked=false;
-  gUpdateScore(); gSetPhase('カードをめくってスタート！'); gRenderGrid();
-  document.getElementById('g-modal').classList.remove('show');
-}
-
-function gRenderGrid(){
-  const grid=document.getElementById('g-grid'); grid.innerHTML='';
-  gCards.forEach(card=>{
-    const el=document.createElement('div'); el.className='g-card'; el.dataset.uid=card.uid;
-    el.innerHTML=`<div class="g-card-inner">
-      <div class="g-card-face g-card-back"><div class="g-card-back-pattern">✦</div><div class="g-card-back-label">WISDOM</div></div>
-      <div class="g-card-face g-card-front ${card.type}">
-        <div class="g-card-type-badge">${card.type==='knowledge'?'知 識':'知 恵'}</div>
-        <div class="g-card-emoji">${card.emoji}</div>
-        <div class="g-card-text">${card.text.replace('\n','<br>')}</div>
-      </div></div>`;
-    el.addEventListener('click',()=>gOnCardClick(el,card));
-    grid.appendChild(el);
-  });
-}
-
-function gOnCardClick(el,card){
-  if(gLocked||gMatched.has(card.id)||gFlipped.find(f=>f.uid===card.uid)||gFlipped.length>=2) return;
-  el.classList.add('flipped'); gFlipped.push({uid:card.uid,id:card.id,el});
-  if(gFlipped.length===2){
-    gMoves++; gUpdateScore(); gLocked=true;
-    const[a,b]=gFlipped;
-    if(a.id===b.id){
-      setTimeout(()=>{ a.el.classList.add('matched'); b.el.classList.add('matched'); gMatched.add(a.id); gFlipped=[]; gLocked=false; gUpdateScore(); gShowFlash('✨ ペア！','match'); gSetPhase(G_MATCH_MSGS[a.id]||'ペアを見つけた！'); if(gMatched.size===G_CARD_DATA.length) setTimeout(gShowClear,800); },500);
-    } else {
-      gMisses++; gUpdateScore(); gShowFlash('💦 ちがう…','miss');
-      setTimeout(()=>{ a.el.classList.remove('flipped'); b.el.classList.remove('flipped'); gFlipped=[]; gLocked=false; gSetPhase('もう一度チャレンジ！'); },900);
-    }
-  }
-}
-
-function gUpdateScore(){
-  document.getElementById('g-pairs').textContent=`${gMatched.size} / 9`;
-  document.getElementById('g-moves').textContent=gMoves;
-  document.getElementById('g-misses').textContent=gMisses;
-}
-
-function gSetPhase(txt){
-  const el=document.getElementById('g-phase-text'); el.textContent=txt;
-  el.style.animation='none'; requestAnimationFrame(()=>{el.style.animation='';});
-}
-
-function gShowFlash(msg,type){
-  const el=document.getElementById('g-flash'); el.textContent=msg; el.className=`g-flash ${type} show`;
-  if(gFlashTimer) clearTimeout(gFlashTimer); gFlashTimer=setTimeout(()=>el.classList.remove('show'),900);
-}
-
-function gShowClear(){
-  const rank=gMisses===0?'⭐⭐⭐ パーフェクト！':gMisses<=3?'⭐⭐ すごい！':gMisses<=6?'⭐ よくできました！':'クリア！';
-  const msg=gMisses===0?'一度もミスなし！神さまの知恵をよく知っているね！':`ミス${gMisses}回でクリア！練習すればもっと上手になれるよ！`;
-  document.getElementById('g-modal-msg').textContent=msg;
-  document.getElementById('g-modal-score').innerHTML=`${rank}<br>めくった回数：${gMoves}回　ミス：${gMisses}回`;
-  document.getElementById('g-modal').classList.add('show');
-  gSetPhase('🎉 全ペアクリア！おめでとう！');
-}
-
-function gCloseModal(){ document.getElementById('g-modal').classList.remove('show'); gInitGame(); }
-
-gInitGame();
-</script>
 </body>
 </html>
