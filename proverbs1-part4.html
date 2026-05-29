@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箴言1:20〜33「知恵さんが呼んでいるよ！」</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky:         #E8F4FD;
+      --sky-mid:     #C2E0F7;
+      --blue:        #3A8FD9;
+      --blue-dark:   #1E5FA0;
+      --gold:        #F5A623;
+      --gold-light:  #FFF3D6;
+      --green:       #4CAF6E;
+      --green-light: #E8F8EE;
+      --orange:      #FF7043;
+      --orange-light:#FFF0EB;
+      --purple:      #7E57C2;
+      --purple-light:#EDE7F6;
+      --red:         #E53935;
+      --red-light:   #FFEBEE;
+      --text:        #1A1A2E;
+      --text-mid:    #3A3A5C;
+      --text-soft:   #6B6B8A;
+      --white:       #FFFFFF;
+      --shadow-sm:   0 2px 8px rgba(58,143,217,0.12);
+      --shadow-md:   0 4px 20px rgba(58,143,217,0.18);
+      --shadow-lg:   0 8px 40px rgba(58,143,217,0.22);
+      --radius-md:   20px;
+      --radius-lg:   32px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 18px; }
+
+    body {
+      font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+      background: var(--sky);
+      color: var(--text);
+      line-height: 1.9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 10%, rgba(194,224,247,0.6) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(245,166,35,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(255,255,255,0.4) 0%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ふりがな */
+    ruby { ruby-align: center; }
+    rt {
+      font-size: 0.48em;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text-soft);
+    }
+
+    /* ======= Hero ======= */
+    .hero { text-align: center; padding: 56px 24px 40px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--blue);
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      line-height: 2.6;
+    }
+
+    .hero-icon {
+      font-size: 4.5rem;
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 4.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--blue-dark);
+      line-height: 2.6;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      font-weight: 700;
+      line-height: 2.6;
+    }
+
+    /* ======= Scripture ======= */
+    .scripture-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      margin: 0 0 32px;
+      box-shadow: var(--shadow-md);
+      border-left: 6px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scripture-card::before {
+      content: '✦';
+      position: absolute;
+      top: -10px; right: 20px;
+      font-size: 5rem;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .scripture-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      line-height: 2.6;
+    }
+
+    .scripture-reference {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 18px;
+      line-height: 2.6;
+    }
+
+    .scripture-main {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 2.8;
+      background: var(--gold-light);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      border-left: 4px solid var(--gold);
+    }
+
+    /* ======= Section ======= */
+    .section {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      animation: slideUp 0.5s ease both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .section-icon { font-size: 2rem; line-height: 1; flex-shrink: 0; }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--blue-dark);
+      line-height: 2.6;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: var(--text-mid);
+      line-height: 2.8;
+      margin-bottom: 14px;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    /* ======= Story Bubble ======= */
+    .story-bubble {
+      background: var(--sky);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      margin: 14px 0;
+      border-left: 4px solid var(--blue);
+      color: var(--text-mid);
+      font-size: 1rem;
+      line-height: 2.8;
+    }
+
+    .story-bubble strong { color: var(--blue-dark); }
+
+    /* ======= Highlight Box ======= */
+    .highlight-box {
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin: 16px 0;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 2.8;
+    }
+
+    .highlight-box.blue  { background: #EBF5FF; border: 2px solid var(--blue);  color: var(--blue-dark); }
+    .highlight-box.green { background: var(--green-light); border: 2px solid var(--green); color: #1B5E20; }
+    .highlight-box.gold  { background: var(--gold-light);  border: 2px solid var(--gold); color: #7A4F00; }
+    .highlight-box.purple { background: var(--purple-light); border: 2px solid var(--purple); color: #4A148C; }
+
+    /* ======= 例リスト ======= */
+    .example-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 14px 0;
+    }
+
+    .example-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--green-light);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      line-height: 2.6;
+      border-left: 4px solid var(--green);
+    }
+
+    .example-list li .e-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ======= まとめカード ======= */
+    .summary-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .summary-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 22px 22px;
+      border-left: 6px solid var(--blue);
+      box-shadow: var(--shadow-sm);
+      line-height: 2.8;
+    }
+
+    .summary-card:nth-child(2) { border-left-color: var(--orange); }
+    .summary-card:nth-child(3) { border-left-color: var(--green); }
+
+    .summary-card .s-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .summary-card:nth-child(1) .s-num { color: var(--blue); }
+    .summary-card:nth-child(2) .s-num { color: var(--orange); }
+    .summary-card:nth-child(3) .s-num { color: var(--green); }
+
+    .summary-card .s-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 2.6;
+    }
+
+    .summary-card .s-text {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 2.6;
+    }
+
+    /* ======= Point List ======= */
+    .point-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+    .point-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--white);
+      border: 2px solid var(--sky-mid);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 2.8;
+    }
+
+    .point-star { font-size: 1.5rem; flex-shrink: 0; }
+
+    /* ======= Think ======= */
+    .think-section {
+      background: linear-gradient(135deg, var(--gold-light) 0%, #FFFAEC 100%);
+      border: 2px dashed var(--gold);
+    }
+
+    .think-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      font-size: 1rem;
+      color: var(--text-mid);
+      font-weight: 700;
+      line-height: 2.8;
+    }
+
+    .think-item:last-child { margin-bottom: 0; }
+    .think-item .t-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 4px; }
+
+    /* ======= Prayer ======= */
+    .prayer-card {
+      background: linear-gradient(135deg, #1E5FA0 0%, #3A8FD9 100%);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prayer-card::before {
+      content: '🕊️';
+      position: absolute;
+      top: -20px; right: -20px;
+      font-size: 8rem;
+      opacity: 0.1;
+      line-height: 1;
+    }
+
+    .prayer-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 20px; line-height: 2.6; }
+
+    .prayer-text {
+      font-size: 1rem;
+      line-height: 2.8;
+      opacity: 0.9;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-align: left;
+      background: rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin-bottom: 20px;
+    }
+
+    .prayer-text rt { color: rgba(255,255,255,0.6); }
+    .prayer-amen { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.12em; }
+
+    /* ======= Images ======= */
+    .title-img-wrap { margin-bottom: 28px; }
+    .title-img { width:100%; height:auto; display:block; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); }
+    .section-img-wrap { margin-top: 20px; }
+    .section-img { width:100%; height:auto; display:block; border-radius:var(--radius-md); box-shadow:var(--shadow-sm); }
+
+    /* ======= Nav ======= */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      display: block;
+      text-align: center;
+      background: var(--white);
+      border: 2px solid var(--sky-mid);
+      border-radius: var(--radius-md);
+      padding: 14px 12px;
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--blue-dark);
+      text-decoration: none;
+      line-height: 1.6;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .nav-btn:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+    /* ======= Footer ======= */
+    .footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      font-weight: 700;
+      line-height: 2.6;
+    }
+
+    /* ======= Responsive ======= */
+    @media (max-width: 520px) {
+      html { font-size: 17px; }
+      .container { padding: 0 14px 60px; }
+      .scripture-card, .section, .prayer-card { padding: 24px 18px; }
+      .hero-icon { font-size: 3.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-icon { animation: none; }
+      .section    { animation: none; }
+    }
+
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-badge">📖 <ruby>箴言<rt>しんげん</rt></ruby><ruby>第<rt>だい</rt></ruby>1<ruby>章<rt>しょう</rt></ruby> <ruby>第四部<rt>だいよんぶ</rt></ruby></div>
+    <span class="hero-icon" role="img" aria-label="呼びかけ">📣</span>
+    <h1 class="hero-title"><ruby>知恵<rt>ちえ</rt></ruby>さんが<ruby>呼<rt>よ</rt></ruby>んでいるよ！</h1>
+    <p class="hero-subtitle"><ruby>箴言<rt>しんげん</rt></ruby> 1:20〜33</p>
+  </header>
+
+  <!-- Scripture -->
+  <section class="scripture-card" aria-label="今日の御言葉">
+    <div class="scripture-label">📜 <ruby>今日<rt>きょう</rt></ruby>の<ruby>御言葉<rt>みことば</rt></ruby></div>
+    <div class="scripture-reference"><ruby>箴言<rt>しんげん</rt></ruby> 1<ruby>章<rt>しょう</rt></ruby> 20<ruby>節<rt>せつ</rt></ruby></div>
+    <div class="scripture-main">
+      <ruby>知恵<rt>ちえ</rt></ruby>は、ちまたで<ruby>叫<rt>さけ</rt></ruby>び、<br>
+      <ruby>広場<rt>ひろば</rt></ruby>でその<ruby>声<rt>こえ</rt></ruby>をあげる。
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section" style="animation-delay:0.1s">
+    <div class="section-header">
+      <span class="section-icon">👂</span>
+      <h2 class="section-title"><ruby>守<rt>まも</rt></ruby>りたいから<ruby>呼<rt>よ</rt></ruby>んでいる</h2>
+    </div>
+    <p>みなさんは、お<ruby>父<rt>とう</rt></ruby>さんやお<ruby>母<rt>かあ</rt></ruby>さんから「<ruby>気<rt>き</rt></ruby>をつけてね！」と<ruby>言<rt>い</rt></ruby>われたことがありますか？<br>
+    <ruby>先生<rt>せんせい</rt></ruby>から「<ruby>忘<rt>わす</rt></ruby>れ<ruby>物<rt>もの</rt></ruby>をしないようにね！」と<ruby>言<rt>い</rt></ruby>われたことはありますか？</p>
+
+    <div class="highlight-box blue">
+      💡 それは、みなさんを<ruby>困<rt>こま</rt></ruby>らせたいからではありません。<strong>みなさんを<ruby>守<rt>まも</rt></ruby>りたいから</strong>です。
+    </div>
+
+    <p><ruby>今日<rt>きょう</rt></ruby>の<ruby>箴言<rt>しんげん</rt></ruby>では、「<ruby>知恵<rt>ちえ</rt></ruby>」がまるで<ruby>人<rt>ひと</rt></ruby>のようにお<ruby>話<rt>はなし</rt></ruby>しています。<ruby>知恵<rt>ちえ</rt></ruby>は——</p>
+
+    <div class="story-bubble">
+      「こっちだよ！」<br>
+      「<ruby>正<rt>ただ</rt></ruby>しい<ruby>道<rt>みち</rt></ruby>を<ruby>歩<rt>ある</rt></ruby>こう！」<br>
+      とみんなに<ruby>呼<rt>よ</rt></ruby>びかけています。
+    </div>
+  </section>
+
+  <!-- ① 知恵さんはどこで呼んでいるの？ -->
+  <section class="section" style="animation-delay:0.2s">
+    <div class="section-header">
+      <span class="section-icon">🏙️</span>
+      <h2 class="section-title">① <ruby>知恵<rt>ちえ</rt></ruby>さんはどこで<ruby>呼<rt>よ</rt></ruby>んでいるの？</h2>
+    </div>
+    <p><ruby>知恵<rt>ちえ</rt></ruby>は、<ruby>教会<rt>きょうかい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>だけで<ruby>話<rt>はな</rt></ruby>しているのではありません。<ruby>町<rt>まち</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、<ruby>学校<rt>がっこう</rt></ruby>で、お<ruby>家<rt>うち</rt></ruby>で、<ruby>公園<rt>こうえん</rt></ruby>で——<ruby>毎日<rt>まいにち</rt></ruby>のくらしの<ruby>中<rt>なか</rt></ruby>で<ruby>語<rt>かた</rt></ruby>りかけています。</p>
+
+    <p>たとえば——</p>
+
+    <ul class="example-list">
+      <li>
+        <span class="e-icon">🤝</span>
+        <span><ruby>友<rt>とも</rt></ruby>だちが<ruby>転<rt>こ</rt></ruby>んだ<ruby>時<rt>とき</rt></ruby>、「<ruby>助<rt>たす</rt></ruby>けてあげよう」と<ruby>思<rt>おも</rt></ruby>う<ruby>心<rt>こころ</rt></ruby>。</span>
+      </li>
+      <li>
+        <span class="e-icon">😊</span>
+        <span>うそをつこうとした<ruby>時<rt>とき</rt></ruby>、「<ruby>正直<rt>しょうじき</rt></ruby>に<ruby>言<rt>い</rt></ruby>おう」と<ruby>思<rt>おも</rt></ruby>う<ruby>心<rt>こころ</rt></ruby>。</span>
+      </li>
+      <li>
+        <span class="e-icon">💛</span>
+        <span><ruby>困<rt>こま</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>を<ruby>見<rt>み</rt></ruby>た<ruby>時<rt>とき</rt></ruby>、「やさしくしよう」と<ruby>思<rt>おも</rt></ruby>う<ruby>心<rt>こころ</rt></ruby>。</span>
+      </li>
+    </ul>
+
+    <div class="highlight-box green">
+      ✨ そのような<ruby>時<rt>とき</rt></ruby>、<strong><ruby>神<rt>かみ</rt></ruby>さまは<ruby>私<rt>わたし</rt></ruby>たちの<ruby>心<rt>こころ</rt></ruby>に<ruby>語<rt>かた</rt></ruby>りかけておられるのです。</strong>
+    </div>
+  </section>
+
+  <!-- ② でも人は聞こうとしない -->
+  <section class="section" style="animation-delay:0.3s">
+    <div class="section-header">
+      <span class="section-icon">🙉</span>
+      <h2 class="section-title">② でも<ruby>人<rt>ひと</rt></ruby>は<ruby>聞<rt>き</rt></ruby>こうとしない</h2>
+    </div>
+    <p><ruby>人<rt>ひと</rt></ruby>は<ruby>時々<rt>ときどき</rt></ruby>、<ruby>神<rt>かみ</rt></ruby>さまの<ruby>声<rt>こえ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>こうとしません。</p>
+
+    <div class="story-bubble">
+      お<ruby>母<rt>かあ</rt></ruby>さんが「<ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>先<rt>さき</rt></ruby>にしようね」と<ruby>言<rt>い</rt></ruby>ったのに、ゲームばかりしてしまう…
+    </div>
+    <div class="story-bubble">
+      <ruby>先生<rt>せんせい</rt></ruby>が「<ruby>走<rt>はし</rt></ruby>ったら<ruby>危<rt>あぶ</rt></ruby>ないよ」と<ruby>言<rt>い</rt></ruby>ったのに、<ruby>走<rt>はし</rt></ruby>って<ruby>転<rt>こ</rt></ruby>んでしまった…
+    </div>
+
+    <p><ruby>神<rt>かみ</rt></ruby>さまの<ruby>知恵<rt>ちえ</rt></ruby>も<ruby>同<rt>おな</rt></ruby>じです。<ruby>聞<rt>き</rt></ruby>かなければ、あとで<ruby>困<rt>こま</rt></ruby>ることがあります。</p>
+
+    <div class="highlight-box gold">
+      ⭐ だから<ruby>神<rt>かみ</rt></ruby>さまは、<strong><ruby>何度<rt>なんど</rt></ruby>も<ruby>何度<rt>なんど</rt></ruby>も<ruby>私<rt>わたし</rt></ruby>たちに<ruby>語<rt>かた</rt></ruby>りかけてくださるのです。</strong>
+    </div>
+  </section>
+
+  <!-- ③ 神さまは怒るためではなく招くため -->
+  <section class="section" style="animation-delay:0.4s">
+    <div class="section-header">
+      <span class="section-icon">🤗</span>
+      <h2 class="section-title">③ <ruby>神<rt>かみ</rt></ruby>さまは<ruby>怒<rt>おこ</rt></ruby>るためではなく<ruby>招<rt>まね</rt></ruby>くため</h2>
+    </div>
+    <p><ruby>神<rt>かみ</rt></ruby>さまは、みなさんを<ruby>怒<rt>おこ</rt></ruby>りたいのでしょうか。<ruby>違<rt>ちが</rt></ruby>います。<ruby>神<rt>かみ</rt></ruby>さまは、みなさんが<ruby>幸<rt>しあわ</rt></ruby>せに<ruby>生<rt>い</rt></ruby>きてほしいと<ruby>願<rt>ねが</rt></ruby>っています。</p>
+
+    <div class="story-bubble">
+      だから、<ruby>何度<rt>なんど</rt></ruby>でも、<ruby>何度<rt>なんど</rt></ruby>でも、<strong>「こっちの<ruby>道<rt>みち</rt></ruby>だよ」</strong>と<ruby>教<rt>おし</rt></ruby>えてくださるのです。
+    </div>
+
+    <p><ruby>道<rt>みち</rt></ruby>に<ruby>迷<rt>まよ</rt></ruby>った<ruby>時<rt>とき</rt></ruby>、お<ruby>父<rt>とう</rt></ruby>さんやお<ruby>母<rt>かあ</rt></ruby>さんは<ruby>迎<rt>むか</rt></ruby>えに<ruby>来<rt>き</rt></ruby>てくれます。<ruby>神<rt>かみ</rt></ruby>さまも<ruby>同<rt>おな</rt></ruby>じです。<ruby>私<rt>わたし</rt></ruby>たちが<ruby>間違<rt>まちが</rt></ruby>えても、<ruby>正<rt>ただ</rt></ruby>しい<ruby>道<rt>みち</rt></ruby>へ<ruby>戻<rt>もど</rt></ruby>れるように<ruby>呼<rt>よ</rt></ruby>びかけてくださいます。</p>
+
+    <div class="highlight-box purple">
+      💜 <strong><ruby>神<rt>かみ</rt></ruby>さまは、いつもあなたのそばにいてくださいます。</strong>
+    </div>
+  </section>
+
+  <!-- 第一章のまとめ -->
+  <section class="section" style="animation-delay:0.5s">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <h2 class="section-title"><ruby>箴言<rt>しんげん</rt></ruby><ruby>第<rt>だい</rt></ruby>1<ruby>章<rt>しょう</rt></ruby>のまとめ</h2>
+    </div>
+    <p><ruby>箴言<rt>しんげん</rt></ruby><ruby>第<rt>だい</rt></ruby>1<ruby>章<rt>しょう</rt></ruby>では、<ruby>大切<rt>たいせつ</rt></ruby>なことを<ruby>三<rt>みっ</rt></ruby>つ<ruby>学<rt>まな</rt></ruby>びました。</p>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="s-num">① <ruby>第一部<rt>だいいちぶ</rt></ruby>・<ruby>第二部<rt>だいにぶ</rt></ruby></div>
+        <div class="s-title">🌟 <ruby>知恵<rt>ちえ</rt></ruby>は<ruby>神<rt>かみ</rt></ruby>さまから<ruby>始<rt>はじ</rt></ruby>まる</div>
+        <div class="s-text"><ruby>本当<rt>ほんとう</rt></ruby>の<ruby>知恵<rt>ちえ</rt></ruby>は、たくさん<ruby>知<rt>し</rt></ruby>っていることではありません。<ruby>神<rt>かみ</rt></ruby>さまを<ruby>大切<rt>たいせつ</rt></ruby>にして、<ruby>神<rt>かみ</rt></ruby>さまの<ruby>言葉<rt>ことば</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くことです。</div>
+      </div>
+      <div class="summary-card">
+        <div class="s-num">② <ruby>第三部<rt>だいさんぶ</rt></ruby></div>
+        <div class="s-title">🛡️ <ruby>悪<rt>わる</rt></ruby>いさそいに<ruby>気<rt>き</rt></ruby>をつけよう</div>
+        <div class="s-text">みんながやっているからといって、<ruby>正<rt>ただ</rt></ruby>しいとは<ruby>限<rt>かぎ</rt></ruby>りません。<ruby>神<rt>かみ</rt></ruby>さまが<ruby>喜<rt>よろこ</rt></ruby>ばれることを<ruby>選<rt>えら</rt></ruby>びましょう。</div>
+      </div>
+      <div class="summary-card">
+        <div class="s-num">③ <ruby>第四部<rt>だいよんぶ</rt></ruby></div>
+        <div class="s-title">📣 <ruby>神<rt>かみ</rt></ruby>さまは<ruby>今<rt>いま</rt></ruby>も<ruby>語<rt>かた</rt></ruby>っておられる</div>
+        <div class="s-text"><ruby>神<rt>かみ</rt></ruby>さまは<ruby>遠<rt>とお</rt></ruby>くにおられるのではありません。<ruby>毎日<rt>まいにち</rt></ruby>の<ruby>生活<rt>せいかつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、みなさんに<ruby>語<rt>かた</rt></ruby>りかけてくださっています。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 考えてみよう -->
+  <section class="section think-section" style="animation-delay:0.6s" aria-label="考えてみよう">
+    <div class="section-header">
+      <span class="section-icon">🌱</span>
+      <h2 class="section-title"><ruby>考<rt>かんが</rt></ruby>えてみよう</h2>
+    </div>
+    <div class="think-item">
+      <span class="t-icon">①</span>
+      <span><ruby>神<rt>かみ</rt></ruby>さまは<ruby>最近<rt>さいきん</rt></ruby>、どんなことを<ruby>教<rt>おし</rt></ruby>えてくださったと<ruby>思<rt>おも</rt></ruby>いますか？</span>
+    </div>
+    <div class="think-item">
+      <span class="t-icon">②</span>
+      <span><ruby>悪<rt>わる</rt></ruby>いことにさそわれた<ruby>時<rt>とき</rt></ruby>、どうしたらよいでしょうか？</span>
+    </div>
+    <div class="think-item">
+      <span class="t-icon">③</span>
+      <span><ruby>神<rt>かみ</rt></ruby>さまが<ruby>喜<rt>よろこ</rt></ruby>ばれることを、<ruby>今週<rt>こんしゅう</rt></ruby><ruby>一<rt>ひと</rt></ruby>つやってみるとしたら<ruby>何<rt>なに</rt></ruby>ですか？</span>
+    </div>
+  </section>
+
+  <!-- お祈り -->
+  <div class="prayer-card" role="region" aria-label="お祈り">
+    <h2 class="prayer-title">🕊️ お<ruby>祈<rt>いの</rt></ruby>り</h2>
+    <div class="prayer-text">
+      <ruby>天<rt>てん</rt></ruby>のお<ruby>父<rt>とう</rt></ruby>さま。<br><br>
+      いつも<ruby>私<rt>わたし</rt></ruby>たちを<ruby>愛<rt>あい</rt></ruby>し、<ruby>正<rt>ただ</rt></ruby>しい<ruby>道<rt>みち</rt></ruby>へ<ruby>導<rt>みちび</rt></ruby>いてくださりありがとうございます。<br>
+      <ruby>自分<rt>じぶん</rt></ruby>の<ruby>考<rt>かんが</rt></ruby>えだけで<ruby>行動<rt>こうどう</rt></ruby>するのではなく、あなたの<ruby>知恵<rt>ちえ</rt></ruby>に<ruby>耳<rt>みみ</rt></ruby>を<ruby>傾<rt>かたむ</rt></ruby>けることができますように。<br>
+      <ruby>悪<rt>わる</rt></ruby>いさそいから<ruby>守<rt>まも</rt></ruby>り、やさしく<ruby>正<rt>ただ</rt></ruby>しいことを<ruby>選<rt>えら</rt></ruby>ぶ<ruby>勇気<rt>ゆうき</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えてください。<br>
+      <ruby>毎日<rt>まいにち</rt></ruby>の<ruby>生活<rt>せいかつ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で、あなたの<ruby>声<rt>こえ</rt></ruby>を<ruby>聞<rt>き</rt></ruby>くことができますように。<br><br>
+      イエスさまのお<ruby>名前<rt>なまえ</rt></ruby>によってお<ruby>祈<rt>いの</rt></ruby>りします。
+    </div>
+    <div class="prayer-amen">アーメン 🙏</div>
+  </div>
+
+  <!-- ナビゲーション -->
+  <nav class="nav-bar" aria-label="ページナビゲーション">
+    <a href="proverbs1-part3.html" class="nav-btn">← <ruby>第三部<rt>だいさんぶ</rt></ruby>へ<ruby>戻<rt>もど</rt></ruby>る</a>
+    <a href="index.html" class="nav-btn">🏠 <ruby>最初<rt>さいしょ</rt></ruby>のページへ</a>
+    <a href="wisdom-card-game.html" class="nav-btn">🃏 カードゲームで<ruby>遊<rt>あそ</rt></ruby>ぶ</a>
+  </nav>
+
+  <footer class="footer">
+    <p><ruby>箴言<rt>しんげん</rt></ruby>1:20〜33 ／ こども<ruby>礼拝<rt>れいはい</rt></ruby>プログラム</p>
+    <p style="margin-top:10px; font-size:0.9rem; color:var(--blue-dark); font-weight:800;">
+      ✝️ キリストコミュニティガーデン　アバハウス
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
