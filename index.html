@@ -513,14 +513,14 @@
 
     .g-card-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(8, 1fr);
       gap: 8px;
       margin-bottom: 20px;
     }
 
     .g-card {
       aspect-ratio: 2/3;
-      perspective: 800px;
+      perspective: 600px;
       cursor: pointer;
     }
     .g-card-inner {
@@ -562,8 +562,8 @@
     }
     .knowledge .g-card-type-badge { background: rgba(179,136,255,0.2); color: var(--gpurp); border: 1px solid rgba(179,136,255,0.4); }
     .wisdom    .g-card-type-badge { background: rgba(6,214,160,0.15);  color: var(--ggreen); border: 1px solid rgba(6,214,160,0.4); }
-    .g-card-emoji { font-size: 1.6rem; line-height: 1; margin: 3px 0; }
-    .g-card-text  { font-size: 0.62rem; font-weight: 700; line-height: 1.5; color: var(--gwhite); opacity: 0.9; }
+    .g-card-emoji { font-size: 1.2rem; line-height: 1; margin: 2px 0; }
+    .g-card-text  { font-size: 0.55rem; font-weight: 700; line-height: 1.4; color: var(--gwhite); opacity: 0.9; }
     .g-card.matched .g-card-inner { opacity: 0.6; }
     .g-card:not(.flipped):not(.matched):hover .g-card-inner { transform: translateY(-3px) rotateY(6deg); }
 
@@ -632,9 +632,9 @@
     .g-flash.miss  { background: rgba(239,71,111,0.15); border: 2px solid var(--gred);   color: var(--gred); }
 
     @media (max-width: 480px) {
-      .g-card-grid { gap: 5px; }
-      .g-card-emoji { font-size: 1.3rem; }
-      .g-card-text  { font-size: 0.56rem; }
+      .g-card-grid { grid-template-columns: repeat(4, 1fr); gap: 5px; }
+      .g-card-emoji { font-size: 1.1rem; }
+      .g-card-text  { font-size: 0.5rem; }
     }
 
     /* ======= Footer ======= */
