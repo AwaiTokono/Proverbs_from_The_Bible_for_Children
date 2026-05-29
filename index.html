@@ -406,6 +406,237 @@
       box-shadow: var(--shadow-sm);
     }
 
+    /* ======= GAME SECTION ======= */
+    .game-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 40px 0 28px;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--blue-dark);
+    }
+    .game-divider::before,
+    .game-divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--sky-mid));
+    }
+    .game-divider::after {
+      background: linear-gradient(90deg, var(--sky-mid), transparent);
+    }
+    .game-divider-text { white-space: nowrap; }
+    .game-divider-icon { font-size: 1.4rem; }
+
+    #game-section {
+      --gbg:   #0d1b2a;
+      --gbg2:  #132035;
+      --gblue: #4db8ff;
+      --ggold: #ffd166;
+      --ggreen:#06d6a0;
+      --gred:  #ef476f;
+      --gpurp: #b388ff;
+      --gwhite:#f0f8ff;
+      --gsoft: #7aa0c0;
+    }
+
+    .g-wrap {
+      background: var(--gbg);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px 32px;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+
+    .g-title-area { text-align: center; margin-bottom: 20px; }
+    .g-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gblue), var(--gpurp));
+      color: var(--gbg);
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+    .g-title {
+      font-size: clamp(1.2rem, 4vw, 1.7rem);
+      font-weight: 900;
+      line-height: 1.4;
+      background: linear-gradient(135deg, var(--gblue) 0%, var(--ggold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 6px;
+    }
+    .g-desc { font-size: 0.82rem; color: var(--gsoft); font-weight: 700; }
+
+    .g-rule-box {
+      background: rgba(77,184,255,0.06);
+      border: 1px solid rgba(77,184,255,0.15);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 18px;
+      font-size: 0.76rem;
+      color: var(--gsoft);
+      font-weight: 700;
+      line-height: 1.8;
+    }
+    .g-rule-box strong { color: var(--gblue); }
+
+    .g-scorebar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--gbg2);
+      border: 1px solid rgba(77,184,255,0.2);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      gap: 10px;
+    }
+    .g-score-item { text-align: center; flex: 1; }
+    .g-score-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--gsoft); margin-bottom: 4px; }
+    .g-score-val { font-size: 1.4rem; font-weight: 900; line-height: 1; }
+    .g-gold  { color: var(--ggold);  text-shadow: 0 0 10px rgba(255,209,102,0.4); }
+    .g-blue  { color: var(--gblue);  text-shadow: 0 0 10px rgba(77,184,255,0.4); }
+    .g-green { color: var(--ggreen); text-shadow: 0 0 10px rgba(6,214,160,0.4); }
+    .g-score-divider { width: 1px; height: 36px; background: rgba(77,184,255,0.2); }
+
+    .g-phase-bar { text-align: center; margin-bottom: 16px; min-height: 24px; }
+    .g-phase-text { font-size: 0.88rem; font-weight: 800; color: var(--ggold); letter-spacing: 0.05em; }
+
+    .g-card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .g-card {
+      aspect-ratio: 2/3;
+      perspective: 800px;
+      cursor: pointer;
+    }
+    .g-card-inner {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+      border-radius: 12px;
+    }
+    .g-card.flipped .g-card-inner,
+    .g-card.matched .g-card-inner { transform: rotateY(180deg); }
+    .g-card-face {
+      position: absolute; inset: 0;
+      border-radius: 12px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 6px;
+      text-align: center;
+    }
+    .g-card-back {
+      background: linear-gradient(135deg, #1a3050 0%, #0d1b2a 100%);
+      border: 2px solid rgba(77,184,255,0.3);
+    }
+    .g-card-back-pattern { font-size: 1.8rem; opacity: 0.5; margin-bottom: 4px; }
+    .g-card-back-label { font-size: 0.55rem; font-weight: 800; letter-spacing: 0.1em; color: var(--gblue); opacity: 0.7; }
+    .g-card-front {
+      transform: rotateY(180deg);
+      flex-direction: column;
+      gap: 4px;
+    }
+    .g-card-front.knowledge { background: linear-gradient(135deg,#1a1040,#2d1b69); border: 2px solid var(--gpurp); }
+    .g-card-front.wisdom    { background: linear-gradient(135deg,#0a2a20,#0d3d2a); border: 2px solid var(--ggreen); }
+    .g-card-type-badge {
+      font-size: 0.5rem; font-weight: 800; letter-spacing: 0.08em;
+      padding: 2px 6px; border-radius: 100px; margin-bottom: 2px;
+    }
+    .knowledge .g-card-type-badge { background: rgba(179,136,255,0.2); color: var(--gpurp); border: 1px solid rgba(179,136,255,0.4); }
+    .wisdom    .g-card-type-badge { background: rgba(6,214,160,0.15);  color: var(--ggreen); border: 1px solid rgba(6,214,160,0.4); }
+    .g-card-emoji { font-size: 1.6rem; line-height: 1; margin: 3px 0; }
+    .g-card-text  { font-size: 0.62rem; font-weight: 700; line-height: 1.5; color: var(--gwhite); opacity: 0.9; }
+    .g-card.matched .g-card-inner { opacity: 0.6; }
+    .g-card:not(.flipped):not(.matched):hover .g-card-inner { transform: translateY(-3px) rotateY(6deg); }
+
+    .g-btn-area { text-align: center; }
+    .g-btn {
+      background: linear-gradient(135deg, var(--gblue) 0%, var(--gpurp) 100%);
+      color: var(--gbg);
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 900;
+      padding: 12px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(77,184,255,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .g-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(77,184,255,0.3); }
+    .g-btn:active { transform: translateY(0); }
+
+    .g-modal-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .g-modal-overlay.show { display: flex; }
+    .g-modal {
+      background: var(--gbg2);
+      border: 2px solid var(--ggold);
+      border-radius: 24px;
+      padding: 36px 28px;
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+      box-shadow: 0 0 60px rgba(255,209,102,0.3), 0 20px 60px rgba(0,0,0,0.5);
+      animation: gModalPop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    @keyframes gModalPop {
+      from { opacity: 0; transform: scale(0.7); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .g-modal-emoji { font-size: 3rem; margin-bottom: 10px; display: block; }
+    .g-modal-title { font-size: 1.5rem; font-weight: 900; color: var(--ggold); margin-bottom: 8px; }
+    .g-modal-msg   { font-size: 0.85rem; color: var(--gsoft); line-height: 1.8; margin-bottom: 20px; font-weight: 700; }
+    .g-modal-score {
+      font-size: 0.95rem; font-weight: 800; color: var(--gwhite);
+      background: rgba(255,209,102,0.1); border: 1px solid rgba(255,209,102,0.3);
+      border-radius: 10px; padding: 10px 16px; margin-bottom: 20px;
+    }
+
+    .g-flash {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%,-50%) scale(0.8);
+      font-size: 1.4rem; font-weight: 900;
+      padding: 14px 28px; border-radius: 18px;
+      z-index: 200; pointer-events: none; opacity: 0;
+      transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .g-flash.show { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    .g-flash.match { background: rgba(6,214,160,0.15); border: 2px solid var(--ggreen); color: var(--ggreen); }
+    .g-flash.miss  { background: rgba(239,71,111,0.15); border: 2px solid var(--gred);   color: var(--gred); }
+
+    @media (max-width: 480px) {
+      .g-card-grid { gap: 5px; }
+      .g-card-emoji { font-size: 1.3rem; }
+      .g-card-text  { font-size: 0.56rem; }
+    }
+
     /* ======= Footer ======= */
     .footer {
       text-align: center;
@@ -654,10 +885,167 @@
     <div class="prayer-amen">アーメン 🙏</div>
   </div>
 
+  <!-- ===== BONUS GAME ===== -->
+  <div id="game-section">
+    <div class="game-divider">
+      <span class="game-divider-icon">🎮</span>
+      <span class="game-divider-text">おまけ：カードゲームであそぼう！</span>
+      <span class="game-divider-icon">🎮</span>
+    </div>
+
+    <div class="g-wrap">
+      <div class="g-title-area">
+        <div class="g-badge">📖 箴言1章より</div>
+        <h2 class="g-title">🃏 知識 vs 知恵<br>カードめくりゲーム</h2>
+        <p class="g-desc">同じペアのカードを見つけよう！</p>
+      </div>
+
+      <div class="g-rule-box">
+        <strong>あそびかた：</strong>カードをめくって、<strong>同じペア</strong>（知識カード＋知識カード、または知恵カード＋知恵カード）を見つけよう。全部で <strong>8ペア</strong>。ミスを少なくクリアしよう！
+      </div>
+
+      <div class="g-scorebar">
+        <div class="g-score-item">
+          <div class="g-score-label">⭐ ペア</div>
+          <div class="g-score-val g-gold" id="g-pairs">0 / 8</div>
+        </div>
+        <div class="g-score-divider"></div>
+        <div class="g-score-item">
+          <div class="g-score-label">🔄 回数</div>
+          <div class="g-score-val g-blue" id="g-moves">0</div>
+        </div>
+        <div class="g-score-divider"></div>
+        <div class="g-score-item">
+          <div class="g-score-label">❌ ミス</div>
+          <div class="g-score-val g-green" id="g-misses">0</div>
+        </div>
+      </div>
+
+      <div class="g-phase-bar">
+        <div class="g-phase-text" id="g-phase-text">カードをめくってスタート！</div>
+      </div>
+
+      <div class="g-card-grid" id="g-grid"></div>
+
+      <div class="g-btn-area">
+        <button class="g-btn" onclick="gInitGame()">🔀 シャッフルしてはじめる</button>
+      </div>
+    </div>
+
+    <div class="g-flash" id="g-flash"></div>
+
+    <div class="g-modal-overlay" id="g-modal">
+      <div class="g-modal">
+        <span class="g-modal-emoji">🎉</span>
+        <div class="g-modal-title">クリア！</div>
+        <div class="g-modal-msg" id="g-modal-msg"></div>
+        <div class="g-modal-score" id="g-modal-score"></div>
+        <button class="g-btn" onclick="gCloseModal()">もう一度あそぶ</button>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <p><ruby>箴言<rt>しんげん</rt></ruby>1:1〜6 ／ こども<ruby>礼拝<rt>れいはい</rt></ruby>プログラム</p>
+    <p style="margin-top:10px; font-size:0.9rem; color:var(--blue-dark); font-weight:800;">
+      ✝️ キリストコミュニティガーデン　アバハウス
+    </p>
   </footer>
 
 </div>
+<script>
+// ===== カードゲーム =====
+const G_CARD_DATA = [
+  { id:'k1', type:'knowledge', emoji:'📚', text:'魚の名前を\n100種類知っている' },
+  { id:'k2', type:'knowledge', emoji:'🔢', text:'九九を\n全部言える' },
+  { id:'k3', type:'knowledge', emoji:'🌍', text:'国の名前を\nたくさん知っている' },
+  { id:'k4', type:'knowledge', emoji:'📖', text:'聖書の言葉を\n暗記している' },
+  { id:'w1', type:'wisdom',    emoji:'🤝', text:'悲しむ友だちに\n声をかける' },
+  { id:'w2', type:'wisdom',    emoji:'😊', text:'宿題を忘れたことを\n正直に話す' },
+  { id:'w3', type:'wisdom',    emoji:'✋', text:'悪口を聞いても\n一緒に言わない' },
+  { id:'w4', type:'wisdom',    emoji:'🙏', text:'神さまが\n喜ばれることを選ぶ' },
+];
+const G_MATCH_MSGS = {
+  k1:'魚の名前を100種類知っている → これは知識！',
+  k2:'九九を全部言える → これは知識！',
+  k3:'国の名前をたくさん知っている → これは知識！',
+  k4:'聖書の言葉を暗記している → これは知識！',
+  w1:'悲しむ友だちに声をかける → これが知恵！',
+  w2:'正直に話す → これが知恵！',
+  w3:'悪口を一緒に言わない → これが知恵！',
+  w4:'神さまが喜ばれることを選ぶ → これが知恵！',
+};
+
+let gCards=[], gFlipped=[], gMatched=new Set(), gMoves=0, gMisses=0, gLocked=false, gFlashTimer=null;
+
+function gShuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function gInitGame(){
+  gCards = gShuffle([...G_CARD_DATA,...G_CARD_DATA].map((d,i)=>({...d,uid:d.id+(i<8?'_a':'_b')})));
+  gFlipped=[]; gMatched=new Set(); gMoves=0; gMisses=0; gLocked=false;
+  gUpdateScore(); gSetPhase('カードをめくってスタート！'); gRenderGrid();
+  document.getElementById('g-modal').classList.remove('show');
+}
+
+function gRenderGrid(){
+  const grid=document.getElementById('g-grid'); grid.innerHTML='';
+  gCards.forEach(card=>{
+    const el=document.createElement('div'); el.className='g-card'; el.dataset.uid=card.uid;
+    el.innerHTML=`<div class="g-card-inner">
+      <div class="g-card-face g-card-back"><div class="g-card-back-pattern">✦</div><div class="g-card-back-label">WISDOM</div></div>
+      <div class="g-card-face g-card-front ${card.type}">
+        <div class="g-card-type-badge">${card.type==='knowledge'?'知 識':'知 恵'}</div>
+        <div class="g-card-emoji">${card.emoji}</div>
+        <div class="g-card-text">${card.text.replace('\n','<br>')}</div>
+      </div></div>`;
+    el.addEventListener('click',()=>gOnCardClick(el,card));
+    grid.appendChild(el);
+  });
+}
+
+function gOnCardClick(el,card){
+  if(gLocked||gMatched.has(card.id)||gFlipped.find(f=>f.uid===card.uid)||gFlipped.length>=2) return;
+  el.classList.add('flipped'); gFlipped.push({uid:card.uid,id:card.id,el});
+  if(gFlipped.length===2){
+    gMoves++; gUpdateScore(); gLocked=true;
+    const[a,b]=gFlipped;
+    if(a.id===b.id){
+      setTimeout(()=>{ a.el.classList.add('matched'); b.el.classList.add('matched'); gMatched.add(a.id); gFlipped=[]; gLocked=false; gUpdateScore(); gShowFlash('✨ ペア！','match'); gSetPhase(G_MATCH_MSGS[a.id]||'ペアを見つけた！'); if(gMatched.size===G_CARD_DATA.length) setTimeout(gShowClear,800); },500);
+    } else {
+      gMisses++; gUpdateScore(); gShowFlash('💦 ちがう…','miss');
+      setTimeout(()=>{ a.el.classList.remove('flipped'); b.el.classList.remove('flipped'); gFlipped=[]; gLocked=false; gSetPhase('もう一度チャレンジ！'); },900);
+    }
+  }
+}
+
+function gUpdateScore(){
+  document.getElementById('g-pairs').textContent=`${gMatched.size} / 8`;
+  document.getElementById('g-moves').textContent=gMoves;
+  document.getElementById('g-misses').textContent=gMisses;
+}
+
+function gSetPhase(txt){
+  const el=document.getElementById('g-phase-text'); el.textContent=txt;
+  el.style.animation='none'; requestAnimationFrame(()=>{el.style.animation='';});
+}
+
+function gShowFlash(msg,type){
+  const el=document.getElementById('g-flash'); el.textContent=msg; el.className=`g-flash ${type} show`;
+  if(gFlashTimer) clearTimeout(gFlashTimer); gFlashTimer=setTimeout(()=>el.classList.remove('show'),900);
+}
+
+function gShowClear(){
+  const rank=gMisses===0?'⭐⭐⭐ パーフェクト！':gMisses<=3?'⭐⭐ すごい！':gMisses<=6?'⭐ よくできました！':'クリア！';
+  const msg=gMisses===0?'一度もミスなし！神さまの知恵をよく知っているね！':`ミス${gMisses}回でクリア！練習すればもっと上手になれるよ！`;
+  document.getElementById('g-modal-msg').textContent=msg;
+  document.getElementById('g-modal-score').innerHTML=`${rank}<br>めくった回数：${gMoves}回　ミス：${gMisses}回`;
+  document.getElementById('g-modal').classList.add('show');
+  gSetPhase('🎉 全ペアクリア！おめでとう！');
+}
+
+function gCloseModal(){ document.getElementById('g-modal').classList.remove('show'); gInitGame(); }
+
+gInitGame();
+</script>
 </body>
 </html>
