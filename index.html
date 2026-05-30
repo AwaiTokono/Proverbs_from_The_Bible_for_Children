@@ -3,39 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>箴言1:1〜6「知恵を学ぶために」</title>
+  <title>箴言1:1〜3「神さまの知恵を学ぼう」</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --sky:        #E8F4FD;
-      --sky-mid:    #C2E0F7;
-      --blue:       #3A8FD9;
-      --blue-dark:  #1E5FA0;
-      --gold:       #F5A623;
-      --gold-light: #FFF3D6;
-      --green:      #4CAF6E;
-      --green-light:#E8F8EE;
-      --orange:     #FF7043;
+      --sky:         #E8F4FD;
+      --sky-mid:     #C2E0F7;
+      --blue:        #3A8FD9;
+      --blue-dark:   #1E5FA0;
+      --gold:        #F5A623;
+      --gold-light:  #FFF3D6;
+      --green:       #4CAF6E;
+      --green-light: #E8F8EE;
+      --orange:      #FF7043;
       --orange-light:#FFF0EB;
-      --purple:     #7E57C2;
+      --purple:      #7E57C2;
       --purple-light:#EDE7F6;
-      --cream:      #FFFDF5;
-      --text:       #1A1A2E;
-      --text-mid:   #3A3A5C;
-      --text-soft:  #6B6B8A;
-      --white:      #FFFFFF;
-      --shadow-sm:  0 2px 8px rgba(58,143,217,0.12);
-      --shadow-md:  0 4px 20px rgba(58,143,217,0.18);
-      --shadow-lg:  0 8px 40px rgba(58,143,217,0.22);
-      --radius-sm:  12px;
-      --radius-md:  20px;
-      --radius-lg:  32px;
-      --radius-xl:  48px;
+      --text:        #1A1A2E;
+      --text-mid:    #3A3A5C;
+      --text-soft:   #6B6B8A;
+      --white:       #FFFFFF;
+      --shadow-sm:   0 2px 8px rgba(58,143,217,0.12);
+      --shadow-md:   0 4px 20px rgba(58,143,217,0.18);
+      --shadow-lg:   0 8px 40px rgba(58,143,217,0.22);
+      --radius-md:   20px;
+      --radius-lg:   32px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; font-size: 18px; }
 
     body {
@@ -49,8 +45,7 @@
 
     body::before {
       content: '';
-      position: fixed;
-      inset: 0;
+      position: fixed; inset: 0;
       background:
         radial-gradient(ellipse 80% 50% at 10% 10%, rgba(194,224,247,0.6) 0%, transparent 60%),
         radial-gradient(ellipse 60% 40% at 90% 80%, rgba(245,166,35,0.12) 0%, transparent 60%),
@@ -67,7 +62,7 @@
       z-index: 1;
     }
 
-    /* ふりがな共通 */
+    /* ふりがな */
     ruby { ruby-align: center; }
     rt {
       font-size: 0.48em;
@@ -77,10 +72,7 @@
     }
 
     /* ======= Hero ======= */
-    .hero {
-      text-align: center;
-      padding: 56px 24px 40px;
-    }
+    .hero { text-align: center; padding: 56px 24px 40px; }
 
     .hero-badge {
       display: inline-block;
@@ -223,61 +215,79 @@
 
     .section p:last-child { margin-bottom: 0; }
 
-    /* ======= Question Box ======= */
-    .question-box {
-      background: var(--orange-light);
+    /* ======= Story Bubble ======= */
+    .story-bubble {
+      background: var(--sky);
       border-radius: var(--radius-md);
-      padding: 18px 20px;
+      padding: 16px 20px;
       margin: 14px 0;
-      border-left: 5px solid var(--orange);
+      border-left: 4px solid var(--blue);
+      color: var(--text-mid);
       font-size: 1rem;
-      font-weight: 700;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
       line-height: 2.8;
     }
 
-    .question-box .q-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
-    .question-box .q-text { color: var(--text); font-weight: 700; }
+    .story-bubble strong { color: var(--blue-dark); font-style: normal; }
 
-    /* ======= Choice ======= */
-    .choice-pair {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    /* ======= Example List ======= */
+    .example-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       margin: 16px 0;
     }
 
-    .choice {
+    .example-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--gold-light);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      line-height: 2.6;
+      border-left: 4px solid var(--gold);
+    }
+
+    .example-list li .e-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+    /* ======= Wisdom Examples ======= */
+    .wisdom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .wisdom-card {
+      background: var(--green-light);
+      border: 2px solid var(--green);
       border-radius: var(--radius-md);
-      padding: 16px 14px;
+      padding: 18px 16px;
       text-align: center;
-      font-weight: 800;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1B5E20;
       line-height: 2.6;
     }
 
-    .choice.no  { background: #FEE2E2; color: #B91C1C; border: 2px solid #FCA5A5; }
-    .choice.yes { background: var(--green-light); color: #166534; border: 2px solid #86EFAC; }
-    .choice-icon { font-size: 1.5rem; display: block; margin-bottom: 4px; }
+    .wisdom-card .w-icon { font-size: 1.8rem; display: block; margin-bottom: 6px; }
 
-    /* ======= Compare ======= */
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 20px 0;
+    /* ======= Highlight Box ======= */
+    .highlight-box {
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      margin: 16px 0;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 2.8;
     }
 
-    .compare-card { border-radius: var(--radius-md); padding: 20px 16px; text-align: center; }
-    .compare-card.knowledge { background: var(--purple-light); border: 2px solid #C4B5FD; }
-    .compare-card.wisdom    { background: var(--green-light);  border: 2px solid #86EFAC; }
-    .compare-card .c-icon   { font-size: 2.2rem; display: block; margin-bottom: 8px; }
-    .compare-card .c-label  { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; margin-bottom: 6px; line-height: 2.6; }
-    .compare-card.knowledge .c-label { color: var(--purple); }
-    .compare-card.wisdom    .c-label { color: var(--green); }
-    .compare-card .c-text   { font-size: 0.95rem; color: var(--text-mid); line-height: 2.6; }
+    .highlight-box.gold { background: var(--gold-light); border: 2px solid var(--gold); color: #7A4F00; }
+    .highlight-box.blue { background: #EBF5FF; border: 2px solid var(--blue); color: var(--blue-dark); }
 
     /* ======= Point List ======= */
     .point-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
@@ -368,284 +378,20 @@
     }
 
     .prayer-text rt { color: rgba(255,255,255,0.6); }
-
     .prayer-amen { font-size: 1.4rem; font-weight: 900; letter-spacing: 0.12em; }
 
-    /* ======= Story Bubble ======= */
-    .story-bubble {
-      background: var(--sky);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      margin: 14px 0;
-      border-left: 4px solid var(--blue);
-      font-style: italic;
-      color: var(--text-mid);
-      font-size: 1rem;
-      line-height: 2.8;
-    }
-
-    .story-bubble strong { color: var(--blue-dark); font-style: normal; }
-
-    /* ======= Title Image ======= */
+    /* ======= Images ======= */
     .title-img-wrap { margin-bottom: 28px; }
-    .title-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* ======= Section Image ======= */
+    .title-img { width:100%; height:auto; display:block; border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); }
     .section-img-wrap { margin-top: 20px; }
-    .section-img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-    }
+    .section-img { width:100%; height:auto; display:block; border-radius:var(--radius-md); box-shadow:var(--shadow-sm); }
 
-    /* ======= GAME SECTION ======= */
-    .game-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 40px 0 28px;
-      font-size: 1rem;
-      font-weight: 900;
-      color: var(--blue-dark);
-    }
-    .game-divider::before,
-    .game-divider::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--sky-mid));
-    }
-    .game-divider::after {
-      background: linear-gradient(90deg, var(--sky-mid), transparent);
-    }
-    .game-divider-text { white-space: nowrap; }
-    .game-divider-icon { font-size: 1.4rem; }
+    /* ======= Next Lesson Links ======= */
+    .next-link-wrap { text-align: center; margin-bottom: 16px; }
 
-    #game-section {
-      --gbg:   #0d1b2a;
-      --gbg2:  #132035;
-      --gblue: #4db8ff;
-      --ggold: #ffd166;
-      --ggreen:#06d6a0;
-      --gred:  #ef476f;
-      --gpurp: #b388ff;
-      --gwhite:#f0f8ff;
-      --gsoft: #7aa0c0;
-    }
-
-    .g-wrap {
-      background: var(--gbg);
-      border-radius: var(--radius-lg);
-      padding: 28px 20px 32px;
-      margin-bottom: 0;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
-    }
-
-    .g-title-area { text-align: center; margin-bottom: 20px; }
-    .g-badge {
+    .next-link-btn {
       display: inline-block;
-      background: linear-gradient(135deg, var(--gblue), var(--gpurp));
-      color: var(--gbg);
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      padding: 4px 14px;
-      border-radius: 100px;
-      margin-bottom: 10px;
-    }
-    .g-title {
-      font-size: clamp(1.2rem, 4vw, 1.7rem);
-      font-weight: 900;
-      line-height: 1.4;
-      background: linear-gradient(135deg, var(--gblue) 0%, var(--ggold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 6px;
-    }
-    .g-desc { font-size: 0.82rem; color: var(--gsoft); font-weight: 700; }
-
-    .g-rule-box {
-      background: rgba(77,184,255,0.06);
-      border: 1px solid rgba(77,184,255,0.15);
-      border-radius: 12px;
-      padding: 12px 16px;
-      margin-bottom: 18px;
-      font-size: 0.76rem;
-      color: var(--gsoft);
-      font-weight: 700;
-      line-height: 1.8;
-    }
-    .g-rule-box strong { color: var(--gblue); }
-
-    .g-scorebar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--gbg2);
-      border: 1px solid rgba(77,184,255,0.2);
-      border-radius: 14px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      gap: 10px;
-    }
-    .g-score-item { text-align: center; flex: 1; }
-    .g-score-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.08em; color: var(--gsoft); margin-bottom: 4px; }
-    .g-score-val { font-size: 1.4rem; font-weight: 900; line-height: 1; }
-    .g-gold  { color: var(--ggold);  text-shadow: 0 0 10px rgba(255,209,102,0.4); }
-    .g-blue  { color: var(--gblue);  text-shadow: 0 0 10px rgba(77,184,255,0.4); }
-    .g-green { color: var(--ggreen); text-shadow: 0 0 10px rgba(6,214,160,0.4); }
-    .g-score-divider { width: 1px; height: 36px; background: rgba(77,184,255,0.2); }
-
-    .g-phase-bar { text-align: center; margin-bottom: 16px; min-height: 24px; }
-    .g-phase-text { font-size: 0.88rem; font-weight: 800; color: var(--ggold); letter-spacing: 0.05em; }
-
-    .g-card-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .g-card {
-      aspect-ratio: 2/3;
-      perspective: 600px;
-      cursor: pointer;
-    }
-    .g-card-inner {
-      width: 100%; height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-      border-radius: 12px;
-    }
-    .g-card.flipped .g-card-inner,
-    .g-card.matched .g-card-inner { transform: rotateY(180deg); }
-    .g-card-face {
-      position: absolute; inset: 0;
-      border-radius: 12px;
-      backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 6px;
-      text-align: center;
-    }
-    .g-card-back {
-      background: linear-gradient(135deg, #1a3050 0%, #0d1b2a 100%);
-      border: 2px solid rgba(77,184,255,0.3);
-    }
-    .g-card-back-pattern { font-size: 1.8rem; opacity: 0.5; margin-bottom: 4px; }
-    .g-card-back-label { font-size: 0.55rem; font-weight: 800; letter-spacing: 0.1em; color: var(--gblue); opacity: 0.7; }
-    .g-card-front {
-      transform: rotateY(180deg);
-      flex-direction: column;
-      gap: 4px;
-    }
-    .g-card-front.knowledge { background: linear-gradient(135deg,#1a1040,#2d1b69); border: 2px solid var(--gpurp); }
-    .g-card-front.wisdom    { background: linear-gradient(135deg,#0a2a20,#0d3d2a); border: 2px solid var(--ggreen); }
-    .g-card-type-badge {
-      font-size: 0.55rem; font-weight: 800; letter-spacing: 0.06em;
-      padding: 2px 7px; border-radius: 100px; margin-bottom: 3px;
-    }
-    .knowledge .g-card-type-badge { background: rgba(179,136,255,0.2); color: var(--gpurp); border: 1px solid rgba(179,136,255,0.4); }
-    .wisdom    .g-card-type-badge { background: rgba(6,214,160,0.15);  color: var(--ggreen); border: 1px solid rgba(6,214,160,0.4); }
-    .g-card-emoji { font-size: 1.6rem; line-height: 1; margin: 4px 0; }
-    .g-card-text  { font-size: 0.62rem; font-weight: 700; line-height: 1.5; color: var(--gwhite); opacity: 0.9; }
-    .g-card.matched .g-card-inner { opacity: 0.6; }
-    .g-card:not(.flipped):not(.matched):hover .g-card-inner { transform: translateY(-3px) rotateY(6deg); }
-
-    .g-btn-area { text-align: center; }
-    .g-btn {
-      background: linear-gradient(135deg, var(--gblue) 0%, var(--gpurp) 100%);
-      color: var(--gbg);
-      font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 900;
-      padding: 12px 32px;
-      border-radius: 100px;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(77,184,255,0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.05em;
-    }
-    .g-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(77,184,255,0.3); }
-    .g-btn:active { transform: translateY(0); }
-
-    .g-modal-overlay {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.75);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-    }
-    .g-modal-overlay.show { display: flex; }
-    .g-modal {
-      background: var(--gbg2);
-      border: 2px solid var(--ggold);
-      border-radius: 24px;
-      padding: 36px 28px;
-      text-align: center;
-      max-width: 320px;
-      width: 90%;
-      box-shadow: 0 0 60px rgba(255,209,102,0.3), 0 20px 60px rgba(0,0,0,0.5);
-      animation: gModalPop 0.4s cubic-bezier(0.34,1.56,0.64,1);
-    }
-    @keyframes gModalPop {
-      from { opacity: 0; transform: scale(0.7); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-    .g-modal-emoji { font-size: 3rem; margin-bottom: 10px; display: block; }
-    .g-modal-title { font-size: 1.5rem; font-weight: 900; color: var(--ggold); margin-bottom: 8px; }
-    .g-modal-msg   { font-size: 0.85rem; color: var(--gsoft); line-height: 1.8; margin-bottom: 20px; font-weight: 700; }
-    .g-modal-score {
-      font-size: 0.95rem; font-weight: 800; color: var(--gwhite);
-      background: rgba(255,209,102,0.1); border: 1px solid rgba(255,209,102,0.3);
-      border-radius: 10px; padding: 10px 16px; margin-bottom: 20px;
-    }
-
-    .g-flash {
-      position: fixed; top: 50%; left: 50%;
-      transform: translate(-50%,-50%) scale(0.8);
-      font-size: 1.4rem; font-weight: 900;
-      padding: 14px 28px; border-radius: 18px;
-      z-index: 200; pointer-events: none; opacity: 0;
-      transition: opacity 0.2s, transform 0.2s; white-space: nowrap;
-    }
-    .g-flash.show { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-    .g-flash.match { background: rgba(6,214,160,0.15); border: 2px solid var(--ggreen); color: var(--ggreen); }
-    .g-flash.miss  { background: rgba(239,71,111,0.15); border: 2px solid var(--gred);   color: var(--gred); }
-
-    @media (max-width: 480px) {
-      .g-card-grid { grid-template-columns: repeat(3, 1fr); gap: 5px; }
-      .g-card-emoji { font-size: 1.1rem; }
-      .g-card-text  { font-size: 0.5rem; }
-    }
-
-    /* ======= Part2 Link ======= */
-    .part2-link-wrap {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .part2-link-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--gold) 0%, #f07d10 100%);
+      background: linear-gradient(135deg, #1E5FA0 0%, #3A8FD9 100%);
       color: var(--white);
       font-family: 'M PLUS Rounded 1c', sans-serif;
       font-size: 1.05rem;
@@ -653,19 +399,39 @@
       padding: 18px 32px;
       border-radius: 100px;
       text-decoration: none;
-      box-shadow: 0 4px 20px rgba(245,166,35,0.4);
+      box-shadow: var(--shadow-md);
       transition: transform 0.2s, box-shadow 0.2s;
       letter-spacing: 0.04em;
       line-height: 2.4;
     }
 
-    .part2-link-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(245,166,35,0.5);
-    }
+    .next-link-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
 
     /* ======= Game Link ======= */
     .game-link-wrap { text-align: center; margin-bottom: 28px; }
+
+    .game-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 40px 0 20px;
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--blue-dark);
+    }
+
+    .game-divider::before,
+    .game-divider::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--sky-mid));
+    }
+
+    .game-divider::after { background: linear-gradient(90deg, var(--sky-mid), transparent); }
+    .game-divider-text { white-space: nowrap; }
+    .game-divider-icon { font-size: 1.4rem; }
 
     .game-link-btn {
       display: inline-block;
@@ -674,19 +440,15 @@
       font-family: 'M PLUS Rounded 1c', sans-serif;
       font-size: 1.1rem;
       font-weight: 900;
-      padding: 18px 40px;
+      padding: 14px 36px;
       border-radius: 100px;
       text-decoration: none;
       box-shadow: var(--shadow-md);
       transition: transform 0.2s, box-shadow 0.2s;
       letter-spacing: 0.05em;
-      line-height: 1.5;
     }
 
-    .game-link-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
+    .game-link-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
     /* ======= Footer ======= */
     .footer {
@@ -703,7 +465,7 @@
       html { font-size: 17px; }
       .container { padding: 0 14px 60px; }
       .scripture-card, .section, .prayer-card { padding: 24px 18px; }
-      .choice-pair, .compare-grid { grid-template-columns: 1fr; }
+      .wisdom-grid { grid-template-columns: 1fr; }
       .hero-icon { font-size: 3.5rem; }
     }
 
@@ -720,169 +482,76 @@
 
   <!-- Hero -->
   <header class="hero">
-    <div class="hero-badge">📖 <ruby>箴言<rt>しんげん</rt></ruby><ruby>第<rt>だい</rt></ruby>1<ruby>章<rt>しょう</rt></ruby> <ruby>第<rt>だい</rt></ruby>一<ruby>部<rt>いちぶ</rt></ruby></div>
+    <div class="hero-badge">📖 <ruby>箴言<rt>しんげん</rt></ruby> <ruby>第<rt>だい</rt></ruby>1<ruby>回<rt>かい</rt></ruby></div>
     <span class="hero-icon" role="img" aria-label="本">📚</span>
-    <h1 class="hero-title"><ruby>知恵<rt>ちえ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶために</h1>
-    <p class="hero-subtitle"><ruby>箴言<rt>しんげん</rt></ruby> 1:1〜6</p>
+    <h1 class="hero-title"><ruby>神<rt>かみ</rt></ruby>さまの<ruby>知恵<rt>ちえ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぼう</h1>
+    <p class="hero-subtitle"><ruby>箴言<rt>しんげん</rt></ruby> 1:1〜3</p>
   </header>
-
-  <!-- Title Image -->
-  <div class="title-img-wrap">
-    <img src="img_01_title_new.png"
-         alt="箴言第1章 第一部 箴言1:1〜6「知恵を学ぶために」今日の御言葉とソロモン王のイラスト"
-         class="title-img">
-  </div>
 
   <!-- Scripture -->
   <section class="scripture-card" aria-label="今日の御言葉">
     <div class="scripture-label">📜 <ruby>今日<rt>きょう</rt></ruby>の<ruby>御言葉<rt>みことば</rt></ruby></div>
-    <div class="scripture-reference"><ruby>箴言<rt>しんげん</rt></ruby> 1<ruby>章<rt>しょう</rt></ruby> 1〜6<ruby>節<rt>せつ</rt></ruby></div>
+    <div class="scripture-reference"><ruby>箴言<rt>しんげん</rt></ruby> 1<ruby>章<rt>しょう</rt></ruby> 1〜2<ruby>節<rt>せつ</rt></ruby></div>
     <div class="scripture-text">
       <span class="scripture-verse">
         <span class="verse-num">1</span>ダビデの<ruby>子<rt>こ</rt></ruby>、イスラエルの<ruby>王<rt>おう</rt></ruby>ソロモンの<ruby>箴言<rt>しんげん</rt></ruby>。
       </span>
       <span class="scripture-verse">
-        <span class="verse-num">2</span>これは、<ruby>知恵<rt>ちえ</rt></ruby>と<ruby>訓戒<rt>くんかい</rt></ruby>とをわきまえ、<ruby>悟<rt>さと</rt></ruby>りのことばを<ruby>理解<rt>りかい</rt></ruby>するため、
-      </span>
-      <span class="scripture-verse">
-        <span class="verse-num">3</span>また、<ruby>訓戒<rt>くんかい</rt></ruby>を<ruby>受<rt>う</rt></ruby>けて、<ruby>正義<rt>せいぎ</rt></ruby>と<ruby>公正<rt>こうせい</rt></ruby>と<ruby>公平<rt>こうへい</rt></ruby>を<ruby>悟<rt>さと</rt></ruby>るため、
-      </span>
-      <span class="scripture-verse">
-        <span class="verse-num">4</span><ruby>浅<rt>あさ</rt></ruby>はかな<ruby>者<rt>もの</rt></ruby>に<ruby>分別<rt>ふんべつ</rt></ruby>を、<ruby>若<rt>わか</rt></ruby>い<ruby>者<rt>もの</rt></ruby>に<ruby>知識<rt>ちしき</rt></ruby>と<ruby>思慮<rt>しりょ</rt></ruby>を<ruby>得<rt>え</rt></ruby>させるためである。
-      </span>
-      <span class="scripture-verse">
-        <span class="verse-num">5</span><ruby>知恵<rt>ちえ</rt></ruby>のある<ruby>者<rt>もの</rt></ruby>は<ruby>聞<rt>き</rt></ruby>いて<ruby>学<rt>まな</rt></ruby>びを<ruby>増<rt>ふ</rt></ruby>し、<ruby>悟<rt>さと</rt></ruby>りのある<ruby>者<rt>もの</rt></ruby>は<ruby>指導<rt>しどう</rt></ruby>を<ruby>得<rt>え</rt></ruby>る。
-      </span>
-      <span class="scripture-verse">
-        <span class="verse-num">6</span>こうして、<ruby>箴言<rt>しんげん</rt></ruby>と<ruby>比喩<rt>ひゆ</rt></ruby>、<ruby>知恵<rt>ちえ</rt></ruby>のある<ruby>者<rt>もの</rt></ruby>のことばとその<ruby>謎<rt>なぞ</rt></ruby>とを<ruby>理解<rt>りかい</rt></ruby>する。
+        <span class="verse-num">2</span>これは、<ruby>知恵<rt>ちえ</rt></ruby>と<ruby>訓戒<rt>くんかい</rt></ruby>とをわきまえ、<ruby>悟<rt>さと</rt></ruby>りのことばを<ruby>理解<rt>りかい</rt></ruby>するため。
       </span>
     </div>
   </section>
 
-  <!-- Intro -->
+  <!-- おはなし -->
   <section class="section" style="animation-delay:0.1s">
     <div class="section-header">
       <span class="section-icon">🤔</span>
       <h2 class="section-title">「<ruby>頭<rt>あたま</rt></ruby>がいい<ruby>人<rt>ひと</rt></ruby>」ってどんな<ruby>人<rt>ひと</rt></ruby>？</h2>
     </div>
-    <p>みなさんは、<strong>「<ruby>頭<rt>あたま</rt></ruby>がいい<ruby>人<rt>ひと</rt></ruby>」</strong>と<ruby>聞<rt>き</rt></ruby>くと、どんな<ruby>人<rt>ひと</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>浮<rt>う</rt></ruby>かべますか？</p>
-    <div class="question-box">
-      <span class="q-icon">❓</span>
-      <span class="q-text"><ruby>勉強<rt>べんきょう</rt></ruby>ができる<ruby>人<rt>ひと</rt></ruby>？　テストで100<ruby>点<rt>てん</rt></ruby>を<ruby>取<rt>と</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>？　たくさんのことを<ruby>知<rt>し</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby>？</span>
+    <p>みなさんは、「<ruby>頭<rt>あたま</rt></ruby>がいい<ruby>人<rt>ひと</rt></ruby>」と<ruby>聞<rt>き</rt></ruby>くとどんな<ruby>人<rt>ひと</rt></ruby>を<ruby>思<rt>おも</rt></ruby>い<ruby>浮<rt>う</rt></ruby>かべますか？</p>
+
+    <ul class="example-list">
+      <li><span class="e-icon">📝</span><span>テストで100<ruby>点<rt>てん</rt></ruby>を<ruby>取<rt>と</rt></ruby>る<ruby>人<rt>ひと</rt></ruby></span></li>
+      <li><span class="e-icon">📖</span><span><ruby>漢字<rt>かんじ</rt></ruby>をたくさん<ruby>知<rt>し</rt></ruby>っている<ruby>人<rt>ひと</rt></ruby></span></li>
+      <li><span class="e-icon">🔢</span><span><ruby>計算<rt>けいさん</rt></ruby>が<ruby>速<rt>はや</rt></ruby>い<ruby>人<rt>ひと</rt></ruby></span></li>
+    </ul>
+
+    <p>かもしれませんね。でも<ruby>聖書<rt>せいしょ</rt></ruby>が<ruby>教<rt>おし</rt></ruby>える<ruby>知恵<rt>ちえ</rt></ruby>は、それだけではありません。</p>
+
+    <p>たとえば——</p>
+
+    <div class="wisdom-grid">
+      <div class="wisdom-card">
+        <span class="w-icon">🤝</span>
+        <ruby>友<rt>とも</rt></ruby>だちが<ruby>転<rt>こ</rt></ruby>んだ<ruby>時<rt>とき</rt></ruby>に、「<ruby>助<rt>たす</rt></ruby>けてあげよう」と<ruby>思<rt>おも</rt></ruby>うこと
+      </div>
+      <div class="wisdom-card">
+        <span class="w-icon">✋</span>
+        <ruby>悪<rt>わる</rt></ruby>いことに<ruby>誘<rt>さそ</rt></ruby>われた<ruby>時<rt>とき</rt></ruby>に、「やめておこう」と<ruby>決<rt>き</rt></ruby>めること
+      </div>
     </div>
-    <p>もちろん、それも<ruby>素晴<rt>すば</rt></ruby>らしいことです。<br>
-    でも<ruby>聖書<rt>せいしょ</rt></ruby>が<ruby>教<rt>おし</rt></ruby>える「<ruby>知恵<rt>ちえ</rt></ruby>」は、それだけではありません。</p>
+
     <div class="story-bubble">
-      <strong><ruby>聖書<rt>せいしょ</rt></ruby>の<ruby>知恵<rt>ちえ</rt></ruby>とは——</strong><br>
-      「<ruby>神<rt>かみ</rt></ruby>さまが<ruby>喜<rt>よろこ</rt></ruby>ばれることを<ruby>選<rt>えら</rt></ruby>びながら<ruby>生<rt>い</rt></ruby>きる<ruby>力<rt>ちから</rt></ruby>」のことです。
-    </div>
-    <div class="section-img-wrap">
-      <img src="img_02_story.png" alt="おはなし：頭がいい人とはどんな人？聖書の知恵のイラスト" class="section-img">
+      これは、<strong><ruby>神<rt>かみ</rt></ruby>さまからいただく<ruby>知恵<rt>ちえ</rt></ruby></strong>です。
     </div>
   </section>
 
-  <!-- Solomon -->
+  <!-- ソロモン王さま -->
   <section class="section" style="animation-delay:0.2s">
     <div class="section-header">
       <span class="section-icon">👑</span>
       <h2 class="section-title">ソロモン<ruby>王<rt>おう</rt></ruby>さま</h2>
     </div>
-    <p>この<ruby>箇所<rt>かしょ</rt></ruby>は、イスラエルの<ruby>王様<rt>おうさま</rt></ruby>だった <strong>ソロモン</strong> の<ruby>名前<rt>なまえ</rt></ruby>から<ruby>始<rt>はじ</rt></ruby>まります。<br>
-    ソロモン<ruby>王<rt>おう</rt></ruby>さまは、<ruby>神<rt>かみ</rt></ruby>さまから<ruby>特別<rt>とくべつ</rt></ruby>な<ruby>知恵<rt>ちえ</rt></ruby>をいただいた<ruby>王様<rt>おうさま</rt></ruby>でした。</p>
-    <p><ruby>神<rt>かみ</rt></ruby>さまが「<strong>なんでも<ruby>願<rt>ねが</rt></ruby>いなさい</strong>」と<ruby>言<rt>い</rt></ruby>われた<ruby>時<rt>とき</rt></ruby>——</p>
-    <div class="choice-pair">
-      <div class="choice no">
-        <span class="choice-icon">💰</span>
-        「お<ruby>金<rt>かね</rt></ruby>をください」<br>とは<ruby>言<rt>い</rt></ruby>わなかった
-      </div>
-      <div class="choice no">
-        <span class="choice-icon">⚔️</span>
-        「<ruby>強<rt>つよ</rt></ruby>い<ruby>軍隊<rt>ぐんたい</rt></ruby>をください」<br>とは<ruby>言<rt>い</rt></ruby>わなかった
-      </div>
-    </div>
-    <div class="choice" style="border-radius:var(--radius-md);background:var(--green-light);color:#166534;border:2px solid #86EFAC;padding:18px;margin-top:4px;font-weight:800;text-align:center;font-size:0.95rem;line-height:2.6;">
-      <span style="font-size:1.6rem;display:block;margin-bottom:6px;">🙏</span>
-      「<ruby>人々<rt>ひとびと</rt></ruby>を<ruby>正<rt>ただ</rt></ruby>しく<ruby>導<rt>みちび</rt></ruby>く<ruby>知恵<rt>ちえ</rt></ruby>をください」とお<ruby>願<rt>ねが</rt></ruby>いした！
-    </div>
-    <p style="margin-top:16px;"><ruby>神<rt>かみ</rt></ruby>さまはその<ruby>願<rt>ねが</rt></ruby>いを <strong>とても<ruby>喜<rt>よろこ</rt></ruby>ばれました</strong>。</p>
-    <div class="section-img-wrap">
-      <img src="img_03_solomon.png" alt="ソロモン王さまのイラスト" class="section-img">
+    <p><ruby>箴言<rt>しんげん</rt></ruby>を<ruby>書<rt>か</rt></ruby>いたのは、ソロモン<ruby>王<rt>おう</rt></ruby>さまです。</p>
+    <p>ソロモンは<ruby>神<rt>かみ</rt></ruby>さまに、「<ruby>知恵<rt>ちえ</rt></ruby>をください」とお<ruby>願<rt>ねが</rt></ruby>いしました。<ruby>神<rt>かみ</rt></ruby>さまはその<ruby>願<rt>ねが</rt></ruby>いを<ruby>喜<rt>よろこ</rt></ruby>ばれ、<ruby>大<rt>おお</rt></ruby>きな<ruby>知恵<rt>ちえ</rt></ruby>を<ruby>与<rt>あた</rt></ruby>えてくださいました。</p>
+
+    <div class="highlight-box gold">
+      ⭐ だから<ruby>箴言<rt>しんげん</rt></ruby>は、<strong><ruby>神<rt>かみ</rt></ruby>さまが<ruby>与<rt>あた</rt></ruby>えてくださる<ruby>知恵<rt>ちえ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶ<ruby>本<rt>ほん</rt></ruby></strong>なのです。
     </div>
   </section>
 
-  <!-- What are Proverbs for -->
+  <!-- 今日のポイント -->
   <section class="section" style="animation-delay:0.3s">
-    <div class="section-header">
-      <span class="section-icon">📘</span>
-      <h2 class="section-title"><ruby>箴言<rt>しんげん</rt></ruby>は<ruby>何<rt>なん</rt></ruby>のためにあるの？</h2>
-    </div>
-    <p><ruby>箴言<rt>しんげん</rt></ruby>は、<ruby>神<rt>かみ</rt></ruby>さまが<ruby>私<rt>わたし</rt></ruby>たちに<ruby>与<rt>あた</rt></ruby>えてくださった<strong>「<ruby>人生<rt>じんせい</rt></ruby>の<ruby>教科書<rt>きょうかしょ</rt></ruby>」</strong>のような<ruby>本<rt>ほん</rt></ruby>です。</p>
-    <p>たとえば、こんな<ruby>場面<rt>ばめん</rt></ruby>を<ruby>考<rt>かんが</rt></ruby>えてみましょう——</p>
-    <div class="question-box">
-      <span class="q-icon">😢</span>
-      <span class="q-text"><ruby>友<rt>とも</rt></ruby>だちが<ruby>悲<rt>かな</rt></ruby>しそうにしていたら、どうする？</span>
-    </div>
-    <div class="choice-pair">
-      <div class="choice no"><span class="choice-icon">😶</span><ruby>知<rt>し</rt></ruby>らないふりをする</div>
-      <div class="choice yes"><span class="choice-icon">💬</span><ruby>声<rt>こえ</rt></ruby>をかける</div>
-    </div>
-    <div class="question-box" style="margin-top:20px">
-      <span class="q-icon">📝</span>
-      <span class="q-text"><ruby>宿題<rt>しゅくだい</rt></ruby>を<ruby>忘<rt>わす</rt></ruby>れてしまった<ruby>時<rt>とき</rt></ruby>、どうする？</span>
-    </div>
-    <div class="choice-pair">
-      <div class="choice no"><span class="choice-icon">🤥</span>うそをつく</div>
-      <div class="choice yes"><span class="choice-icon">😊</span><ruby>正直<rt>しょうじき</rt></ruby>に<ruby>話<rt>はな</rt></ruby>す</div>
-    </div>
-    <div class="question-box" style="margin-top:20px">
-      <span class="q-icon">👂</span>
-      <span class="q-text">だれかの<ruby>悪口<rt>わるくち</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いた<ruby>時<rt>とき</rt></ruby>、どうする？</span>
-    </div>
-    <div class="choice-pair">
-      <div class="choice no"><span class="choice-icon">😠</span><ruby>一緒<rt>いっしょ</rt></ruby>に<ruby>言<rt>い</rt></ruby>う</div>
-      <div class="choice yes"><span class="choice-icon">✋</span>やめる</div>
-    </div>
-    <p style="margin-top:20px;"><ruby>箴言<rt>しんげん</rt></ruby>は、そんな<ruby>毎日<rt>まいにち</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で <strong>「どちらを<ruby>選<rt>えら</rt></ruby>ぶべきか」</strong> を<ruby>教<rt>おし</rt></ruby>えてくれます。</p>
-    <div class="section-img-wrap">
-      <img src="img_04_proverbs.png" alt="箴言は何のためにあるの？場面選択のイラスト" class="section-img">
-    </div>
-  </section>
-
-  <!-- Knowledge vs Wisdom -->
-  <section class="section" style="animation-delay:0.4s">
-    <div class="section-header">
-      <span class="section-icon">💡</span>
-      <h2 class="section-title"><ruby>知識<rt>ちしき</rt></ruby>と<ruby>知恵<rt>ちえ</rt></ruby>のちがい</h2>
-    </div>
-    <p>たくさんのことを<ruby>知<rt>し</rt></ruby>っていても、<ruby>正<rt>ただ</rt></ruby>しいことをしなければ、それは<ruby>知恵<rt>ちえ</rt></ruby>とは<ruby>言<rt>い</rt></ruby>えません。</p>
-    <p>たとえば、<ruby>魚<rt>さかな</rt></ruby>を<ruby>例<rt>れい</rt></ruby>にしてみましょう——</p>
-    <div class="compare-grid">
-      <div class="compare-card knowledge">
-        <span class="c-icon">🐟</span>
-        <div class="c-label"><ruby>知識<rt>ちしき</rt></ruby></div>
-        <div class="c-text"><ruby>魚<rt>さかな</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>を<br>100<ruby>種類<rt>しゅるい</rt></ruby><ruby>知<rt>し</rt></ruby>っている</div>
-      </div>
-      <div class="compare-card wisdom">
-        <span class="c-icon">❤️</span>
-        <div class="c-label"><ruby>知恵<rt>ちえ</rt></ruby></div>
-        <div class="c-text"><ruby>魚<rt>さかな</rt></ruby>を<ruby>大切<rt>たいせつ</rt></ruby>にしたり<br><ruby>人<rt>ひと</rt></ruby>に<ruby>分<rt>わ</rt></ruby>けたりできる</div>
-      </div>
-    </div>
-    <div class="story-bubble">
-      <ruby>聖書<rt>せいしょ</rt></ruby>は、<ruby>知識<rt>ちしき</rt></ruby>だけではなく、<strong><ruby>神<rt>かみ</rt></ruby>さまの<ruby>言葉<rt>ことば</rt></ruby>を<ruby>聞<rt>き</rt></ruby>いて<ruby>実際<rt>じっさい</rt></ruby>に<ruby>行動<rt>こうどう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby></strong>になりなさいと<ruby>教<rt>おし</rt></ruby>えています。
-    </div>
-    <div class="section-img-wrap">
-      <img src="img_05_wisdom.png" alt="知識と知恵の違いのイラスト" class="section-img">
-    </div>
-  </section>
-
-  <!-- How to get Wisdom -->
-  <div class="section-img-wrap" style="margin-bottom:24px;">
-    <img src="img_06_howto.png" alt="どうすれば知恵が身につくの？聞く・学ぶ・行動するのイラスト" class="section-img">
-  </div>
-
-  <!-- Key Points -->
-  <section class="section" style="animation-delay:0.5s">
     <div class="section-header">
       <span class="section-icon">⭐</span>
       <h2 class="section-title"><ruby>今日<rt>きょう</rt></ruby>のポイント</h2>
@@ -890,40 +559,36 @@
     <ul class="point-list" role="list">
       <li>
         <span class="point-num">1</span>
-        <span><ruby>箴言<rt>しんげん</rt></ruby>は<ruby>人生<rt>じんせい</rt></ruby>の<ruby>教科書<rt>きょうかしょ</rt></ruby>です。</span>
+        <span><ruby>本当<rt>ほんとう</rt></ruby>の<ruby>知恵<rt>ちえ</rt></ruby>は<ruby>神<rt>かみ</rt></ruby>さまから<ruby>来<rt>く</rt></ruby>る。</span>
       </li>
       <li>
         <span class="point-num">2</span>
-        <span><ruby>神<rt>かみ</rt></ruby>さまの<ruby>知恵<rt>ちえ</rt></ruby>は<ruby>正<rt>ただ</rt></ruby>しい<ruby>道<rt>みち</rt></ruby>を<ruby>教<rt>おし</rt></ruby>えてくれます。</span>
+        <span><ruby>知恵<rt>ちえ</rt></ruby>は<ruby>正<rt>ただ</rt></ruby>しいことを<ruby>選<rt>えら</rt></ruby>ぶ<ruby>力<rt>ちから</rt></ruby>。</span>
       </li>
       <li>
         <span class="point-num">3</span>
-        <span><ruby>本当<rt>ほんとう</rt></ruby>の<ruby>知恵<rt>ちえ</rt></ruby>とは、<ruby>知<rt>し</rt></ruby>ることだけでなく<ruby>行<rt>おこな</rt></ruby>うことです。</span>
+        <span><ruby>箴言<rt>しんげん</rt></ruby>は<ruby>神<rt>かみ</rt></ruby>さまの<ruby>知恵<rt>ちえ</rt></ruby>を<ruby>学<rt>まな</rt></ruby>ぶ<ruby>本<rt>ほん</rt></ruby>。</span>
       </li>
     </ul>
   </section>
 
-  <!-- Think -->
-  <section class="section think-section" style="animation-delay:0.6s" aria-label="考えてみよう">
+  <!-- 考えてみよう -->
+  <section class="section think-section" style="animation-delay:0.4s" aria-label="考えてみよう">
     <div class="section-header">
       <span class="section-icon">🌱</span>
       <h2 class="section-title"><ruby>考<rt>かんが</rt></ruby>えてみよう</h2>
     </div>
     <div class="think-item">
-      <span class="t-icon">✅</span>
-      <span><ruby>最近<rt>さいきん</rt></ruby>、<ruby>正<rt>ただ</rt></ruby>しいことを<ruby>選<rt>えら</rt></ruby>べた<ruby>経験<rt>けいけん</rt></ruby>はありますか？</span>
+      <span class="t-icon">①</span>
+      <span><ruby>最近<rt>さいきん</rt></ruby>、<ruby>正<rt>ただ</rt></ruby>しいことを<ruby>選<rt>えら</rt></ruby>べたことはありますか？</span>
     </div>
     <div class="think-item">
-      <span class="t-icon">💛</span>
-      <span>だれかに<ruby>親切<rt>しんせつ</rt></ruby>にできたことはありますか？</span>
-    </div>
-    <div class="think-item">
-      <span class="t-icon">🙏</span>
-      <span><ruby>神<rt>かみ</rt></ruby>さまは<ruby>今日<rt>きょう</rt></ruby>、あなたにどんなことを<ruby>教<rt>おし</rt></ruby>えようとしているでしょうか？</span>
+      <span class="t-icon">②</span>
+      <span><ruby>神<rt>かみ</rt></ruby>さまならどうするかな、と<ruby>考<rt>かんが</rt></ruby>えたことはありますか？</span>
     </div>
   </section>
 
-  <!-- Prayer -->
+  <!-- お祈り -->
   <div class="prayer-card" role="region" aria-label="お祈り">
     <h2 class="prayer-title">🕊️ お<ruby>祈<rt>いの</rt></ruby>り</h2>
     <div class="prayer-text">
@@ -936,24 +601,24 @@
     <div class="prayer-amen">アーメン 🙏</div>
   </div>
 
-  <!-- ===== NAV TO PART2 ===== -->
-  <div class="part2-link-wrap">
-    <a href="proverbs1-part2.html" class="part2-link-btn">
-      📖 <ruby>第二部<rt>だいにぶ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>主<rt>しゅ</rt></ruby>を<ruby>恐<rt>おそ</rt></ruby>れることは<ruby>知識<rt>ちしき</rt></ruby>の<ruby>初<rt>はじ</rt></ruby>め
+  <!-- 次の回へのリンク -->
+  <div class="next-link-wrap">
+    <a href="proverbs1-part2.html" class="next-link-btn" style="background: linear-gradient(135deg, var(--gold) 0%, #f07d10 100%); box-shadow: 0 4px 20px rgba(245,166,35,0.4);">
+      📖 <ruby>第<rt>だい</rt></ruby>2<ruby>回<rt>かい</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>主<rt>しゅ</rt></ruby>を<ruby>恐<rt>おそ</rt></ruby>れることは<ruby>知識<rt>ちしき</rt></ruby>の<ruby>初<rt>はじ</rt></ruby>め
     </a>
   </div>
-  <div class="part2-link-wrap">
-    <a href="proverbs1-part3.html" class="part2-link-btn" style="background: linear-gradient(135deg, var(--green) 0%, #2e7d32 100%); box-shadow: 0 4px 20px rgba(76,175,78,0.4);">
-      📖 <ruby>第三部<rt>だいさんぶ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>悪<rt>わる</rt></ruby>いさそいに<ruby>気<rt>き</rt></ruby>をつけよう
+  <div class="next-link-wrap">
+    <a href="proverbs1-part3.html" class="next-link-btn" style="background: linear-gradient(135deg, var(--green) 0%, #2e7d32 100%); box-shadow: 0 4px 20px rgba(76,175,78,0.4);">
+      📖 <ruby>第<rt>だい</rt></ruby>3<ruby>回<rt>かい</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>悪<rt>わる</rt></ruby>いさそいに<ruby>気<rt>き</rt></ruby>をつけよう
     </a>
   </div>
-  <div class="part2-link-wrap">
-    <a href="proverbs1-part4.html" class="part2-link-btn" style="background: linear-gradient(135deg, #7E57C2 0%, #512DA8 100%); box-shadow: 0 4px 20px rgba(126,87,194,0.4);">
-      📖 <ruby>第四部<rt>だいよんぶ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>知恵<rt>ちえ</rt></ruby>さんが<ruby>呼<rt>よ</rt></ruby>んでいるよ！
+  <div class="next-link-wrap">
+    <a href="proverbs1-part4.html" class="next-link-btn" style="background: linear-gradient(135deg, #7E57C2 0%, #512DA8 100%); box-shadow: 0 4px 20px rgba(126,87,194,0.4);">
+      📖 <ruby>第<rt>だい</rt></ruby>4<ruby>回<rt>かい</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>む　→　<ruby>知恵<rt>ちえ</rt></ruby>さんが<ruby>呼<rt>よ</rt></ruby>んでいるよ！
     </a>
   </div>
 
-  <!-- ===== BONUS GAME LINK ===== -->
+  <!-- ゲームリンク -->
   <div class="game-link-wrap">
     <div class="game-divider">
       <span class="game-divider-icon">🎮</span>
@@ -961,12 +626,12 @@
       <span class="game-divider-icon">🎮</span>
     </div>
     <a href="wisdom-card-game.html" class="game-link-btn">
-      🃏 知識 vs 知恵 カードゲームであそぶ！
+      🃏 <ruby>知識<rt>ちしき</rt></ruby> vs <ruby>知恵<rt>ちえ</rt></ruby> カードゲームであそぶ！
     </a>
   </div>
 
   <footer class="footer">
-    <p><ruby>箴言<rt>しんげん</rt></ruby>1:1〜6 ／ こども<ruby>礼拝<rt>れいはい</rt></ruby>プログラム</p>
+    <p><ruby>箴言<rt>しんげん</rt></ruby>1:1〜3 ／ こども<ruby>礼拝<rt>れいはい</rt></ruby>プログラム</p>
     <p style="margin-top:10px; font-size:0.9rem; color:var(--blue-dark); font-weight:800;">
       ✝️ キリストコミュニティガーデン　アバハウス
     </p>
